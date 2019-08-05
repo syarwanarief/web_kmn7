@@ -57,6 +57,21 @@
                 <i class="fa fa-address-card"></i> <span><span><font face="Book Antiqua">Data Karyawan</font></span>
             </a>
         </li>
+
+        <li class="treeview">
+            <a href="#">
+                <i class="fa fa-book"></i>
+                <span><font face="Book Antiqua">Laporan SDM</font></span>
+                <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+            </a>
+            <ul class="treeview-menu">
+                <li><a href="<?php echo base_url('JumlahTK') ?>"><i class="fa fa-address-book-o"></i><span><font face="Book Antiqua">Jumlah Tenaga Kerja</font></a></li>
+                <li><a href="<?php echo base_url('JumlahTK/BiayaTK') ?>"><i class="glyphicon glyphicon-usd"></i><span><font face="Book Antiqua">Biaya Tenaga Kerja</font></a></li>
+            </ul>
+        </li>
+
         <li class="treeview">
             <a href="#">
                 <i class="fa fa-address-card"></i>
@@ -106,6 +121,20 @@
             <a href="<?php echo base_url('DataKaryawan/Filter') ?>">
                 <i class="fa fa-address-card"></i> <span><span><font face="Book Antiqua">Data Karyawan</font></span>
             </a>
+        </li>
+
+        <li class="treeview">
+            <a href="#">
+                <i class="fa fa-book"></i>
+                <span><font face="Book Antiqua">Laporan SDM</font></span>
+                <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+            </a>
+            <ul class="treeview-menu">
+                <li><a href="<?php echo base_url('JumlahTK') ?>"><i class="fa fa-address-book-o"></i><span><font face="Book Antiqua">Jumlah Tenaga Kerja</font></a></li>
+                <li><a href="<?php echo base_url('JumlahTK/BiayaTK') ?>"><i class="glyphicon glyphicon-usd"></i><span><font face="Book Antiqua">Biaya Tenaga Kerja</font></a></li>
+            </ul>
         </li>
         <li class="treeview">
             <a href="#">
