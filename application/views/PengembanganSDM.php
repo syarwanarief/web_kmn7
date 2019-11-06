@@ -79,8 +79,6 @@
             {
                 var val=$('#kriteria').val();
 
-                // $('#surat').prop('disabled', true);
-
                 if(val==='Januari')
                 {
                     window.location = 'PengembanganSDM/Januari';

@@ -65,8 +65,6 @@ class Users extends CI_Controller {
 
 	public function index()
 	{
-
-
         #cek login
         if(isset($_SESSION['user_is_login']) and $_SESSION['user_is_login']== true):
             $this -> nopek  = $_SESSION['nik'];
@@ -78,17 +76,18 @@ class Users extends CI_Controller {
             $this -> last_sen =$_SESSION['last_sen'];
             redirect(base_url('dashboard'));
         else:
-            //	$this -> flsh_msg('Perhatian!','warning','anda harus login untuk mengakses halaman tersebut');
+            /*	$this -> flsh_msg('Perhatian!','warning','anda harus login untuk mengakses halaman tersebut');
 
             $options = array(
                 'img_path'=>'./captcha/', #folder captcha yg sudah dibuat tadi
                 'img_url'=>base_url('captcha'), #ini arahnya juga ke folder captcha
-                'img_width'=>'145', #lebar image captcha
-                'img_height'=>'45', #tinggi image captcha
+                'img_width'=>'290', #lebar image captcha
+                'img_height'=>'65', #tinggi image captcha
+				'font_size'     => 25,
                 'word_length'   => 4,
                 'expiration'=>7200, #waktu expired
                // 'font_path' => FCPATH . 'assets/font/coolvetica.ttf', #load font jika mau ganti fontnya
-                'pool' => '23456789ABCDEFGHJKLMNPQRSTUVWXYZ', #tipe captcha (angka/huruf, atau kombinasi dari keduanya)
+                'pool' => 'ASDF', #tipe captcha (angka/huruf, atau kombinasi dari keduanya)
 
                 # atur warna captcha-nya di sini ya.. gunakan kode RGB
                 'colors' => array(
@@ -100,9 +99,7 @@ class Users extends CI_Controller {
             $cap = create_captcha($options);
             $data['image'] = $cap['image'];
             $this->session->set_userdata('mycaptcha', $cap['word']);
-            $data['word'] = $this->session->userdata('mycaptcha');
-
-
+            $data['word'] = $this->session->userdata('mycaptcha');*/
 
             $data['help'] = $this->Query->getAllData('kontak')->row();
 
@@ -163,7 +160,7 @@ class Users extends CI_Controller {
                 $this->flsh_msg('Gagal', 'Gray', 'Anda Sudah Memasuki Masa MBT/Pensiun');
                 redirect(base_url('Users'));
 
-                else :
+            else :
 
                 $query = $this->Query->updateData(array('nopek' => $u),
                     array(
@@ -292,14 +289,8 @@ class Users extends CI_Controller {
                     }
                 }
             endif;
-
         endif;
     }
-
-
-
-
-
 
     public function logout()
     {
@@ -314,8 +305,5 @@ class Users extends CI_Controller {
         session_destroy();
         redirect(base_url('Users'));
     }
-
-
-
 
 }

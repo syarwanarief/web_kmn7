@@ -33,9 +33,14 @@
 	</li>
     <li class="active">
         <a href="<?php echo base_url('MenuUtama'); ?>">
-            <i class="fa fa-list-ul"></i> <span><font face="Book Antiqua">Menu Utama</font></span>
+            <i class="fa fa-home"></i> <span><font face="Book Antiqua">Menu Utama</font></span>
         </a>
     </li>
+	<li class="active">
+		<a href="<?php echo base_url('MenuUtama'); ?>">
+			<i class="fa fa-list-ul"></i> <span><font face="Book Antiqua">Evaluasi Pasca Pelatihan</font></span>
+		</a>
+	</li>
 
     <?php
     if($user['level'] == "SuperAdmin"){  //level= dashboard
@@ -58,6 +63,20 @@
             </a>
         </li>
 
+		<li class="treeview">
+			<a href="#">
+				<i class="fa fa-mortar-board"></i>
+				<span><font face="Book Antiqua">Pelatihan</font></span>
+				<span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+			</a>
+			<ul class="treeview-menu">
+				<li><a href="<?php echo base_url('#') ?>"><i class="fa fa-user-plus"></i><span><font face="Book Antiqua">Input Data Pelatihan</font></a></li>
+				<li><a href="<?php echo base_url('Survey/index') ?>"><i class="fa fa-gear"></i><span><font face="Book Antiqua">Kelola Evaluasi Pasca Pelatihan</font></a></li>
+			</ul>
+		</li>
+
         <li class="treeview">
             <a href="#">
                 <i class="fa fa-book"></i>
@@ -68,7 +87,7 @@
             </a>
             <ul class="treeview-menu">
                 <li><a href="<?php echo base_url('JumlahTK') ?>"><i class="fa fa-address-book-o"></i><span><font face="Book Antiqua">Jumlah Tenaga Kerja</font></a></li>
-                <li><a href="<?php echo base_url('JumlahTK/BiayaTK') ?>"><i class="glyphicon glyphicon-usd"></i><span><font face="Book Antiqua">Biaya Tenaga Kerja</font></a></li>
+                <li><a href="<?php echo base_url('BiayaTenagaKerja') ?>"><i class="glyphicon glyphicon-usd"></i><span><font face="Book Antiqua">Biaya Tenaga Kerja</font></a></li>
             </ul>
         </li>
 
@@ -133,7 +152,7 @@
             </a>
             <ul class="treeview-menu">
                 <li><a href="<?php echo base_url('JumlahTK') ?>"><i class="fa fa-address-book-o"></i><span><font face="Book Antiqua">Jumlah Tenaga Kerja</font></a></li>
-                <li><a href="<?php echo base_url('JumlahTK/BiayaTK') ?>"><i class="glyphicon glyphicon-usd"></i><span><font face="Book Antiqua">Biaya Tenaga Kerja</font></a></li>
+                <li><a href="<?php echo base_url('BiayaTenagaKerja') ?>"><i class="glyphicon glyphicon-usd"></i><span><font face="Book Antiqua">Biaya Tenaga Kerja</font></a></li>
             </ul>
         </li>
         <li class="treeview">

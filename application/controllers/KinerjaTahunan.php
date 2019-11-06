@@ -170,9 +170,6 @@ class KinerjaTahunan extends CI_Controller
                     $data['rkap'] =$this->db->query("SELECT rkap FROM `t_kinerja_tahunan` where id_uraian= $ura ORDER by tahun asc LIMIT 5")->result();
                     $data['k'] = $this->db->query("SELECT a.*,b.uraian FROM (SELECT  * FROM t_kinerja_tahunan where id_uraian= $ura group by id_uraian) as a left  JOIN (SELECT * FROM master_uraian) as b on a.id_uraian = b.id_uraian")->result();
                     $data['chart'] =json_encode( $this->db->query("SELECT * FROM t_kinerja_tahunan WHERE id_uraian = $ura GROUP by tahun  ORDER by tahun asc LIMIT 5")->result());
-
-
-
                 }
 
                 $data['input'] = $this->Query->getData(array('nopek' => $id), 'master_data_karyawan')->row();

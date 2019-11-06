@@ -184,7 +184,6 @@ class EditMaster extends CI_Controller
 
     public function Pelatihan (){
 
-
         $kp	= $this -> input -> post("kp");
         $idkp	= $this -> input -> post("idkp");
 

@@ -1,6 +1,26 @@
 <?php 
  
-class Query extends CI_Model{	
+class Query extends CI_Model{
+
+    function get_wilayah($wilayah){
+        $hasil=$this->db->query("SELECT * FROM jumlah_tk_perwilayah WHERE wilayah='$wilayah'");
+        return $hasil->result();
+    }
+
+    function get_komoditas($komoditas){
+        $hasil=$this->db->query("SELECT * FROM jumlah_tk_perkomoditas WHERE komoditas='$komoditas'");
+        return $hasil->result();
+    }
+
+	function get_unit($unit){
+		$hasil=$this->db->query("SELECT * FROM jumlah_tk_perunit WHERE unit='$unit'");
+		return $hasil->result();
+	}
+
+	function putTKtotal($karyawan_tetap,$karyawan_tidak_tetap, $id){
+    	$query = $this->db->query("update jumlah_tenaga_kerja set karyawan_tetap=$karyawan_tetap, karyawan_tidak_tetap=$karyawan_tidak_tetap where id=$id");
+    	return $query->result();
+	}
 
 	function getAllData($table)
     {
@@ -291,7 +311,6 @@ return $query->result();
     }
 //------------------------------------------------------------------------------------------
 
-
     function tanggapan($split){
         // $query0=$this->db->query("DELETE FROM rating_info WHERE user_id=$id_user AND post_id=$id AND rating_action ='dislike'");
 
@@ -300,8 +319,6 @@ return $query->result();
     }
 
 //----------------
-
-
 
     function Like($id, $id_user){
        // $query0=$this->db->query("DELETE FROM rating_info WHERE user_id=$id_user AND post_id=$id AND rating_action ='dislike'");

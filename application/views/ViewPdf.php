@@ -54,11 +54,6 @@
             <div class="col-md-9">
                 <div  class="box box-primary">
                     <div class="box-header with-border">
-
-
-
-
-
                         <button onclick="window.history.go(-1); return false;" type="reset" class="btn btn-default pull-right">
                             <i class="glyphicon glyphicon-chevron-left"></i>
                             KEMBALI
@@ -198,7 +193,6 @@
                     <?php } ?> &nbsp;
                     <b><?php echo $getlike->num_rows() ?> Suka</b>
 
-
                     &emsp;&nbsp;&emsp;&nbsp;
                     &emsp;&nbsp;
                     <?php if($countdislike){?>
@@ -215,15 +209,7 @@
 
                     <span class="pull-right text-muted"> <?php echo  $Jkomen->num_rows(); ?> Komentar</span>
 
-
-
-
                 <?php } ?>
-
-
-
-
-
 
             </div>
                     <!-- KS---------KOMENTAR------------------------------------------------------------ -->

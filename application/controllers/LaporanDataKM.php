@@ -125,7 +125,6 @@ class LaporanDataKM extends CI_Controller {
 
                 $split = explode('-', $decode);
 
-
                 $data['web'] = array(
 
                     'aktif_menu' => 'profil',
@@ -142,8 +141,6 @@ class LaporanDataKM extends CI_Controller {
                     // 'level' => $this->jabatan
                 );
                 // $data['ksq'] = $this->Query->getAllData('user_knowledge_sharing');
-
-
 
                 $data['ksdet'] = $this->Query->UserKM($split[0]);
 

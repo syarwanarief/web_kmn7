@@ -148,7 +148,9 @@
 						<div class="logo-top">
 							<a href="#"><img width="60%" src="<?php echo base_url('assets/images/logo m.png')?>" alt="" /></a>
 
-
+							<div style="background-color: #ffff00">
+								<marquee><b><font color="#000000">Aplikasi Ini Sedang Dalam Proses Pengembangan</font> </b></marquee>
+							</div>
                         </div>
 
 						<div class="panel-heading">
@@ -184,12 +186,6 @@
 											<label class="icon-lp"><i class="fas fa-key"></i></label>
 											<input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Password" required="">
 										</div>
-
-                                        <div class="form-group">
-                                           <div align="center"> <?php echo $image;?></div><p></p>
-                                            <input type="text" name="captcha" id="captcha" tabindex="3" class="form-control" placeholder="Masukan Captcha" required="">
-                                        </div>
-
 										
 										<div class="form-group">
 											<div class="row">
@@ -207,6 +203,7 @@
 												</div>
 											</div>
 										</div>
+
 									</form>
 									<form id="register-form" action="<?php echo base_url('Users/register') ?>" method="post" role="form" style="display: none;">
 
@@ -250,7 +247,7 @@
 					</div>
 					<p></p>
 
-                    <p class="footer-company-name"><b>All Rights Reserved. &copy; 2019 <a target="blank" href="http://www.ptpn7.com"><b>PTPN7</b></a> Design By : <a target="blank" href="<?php echo base_url('PMMB') ?>"><strong>PMMB</strong></a></b></p>
+                    <p class="footer-company-name"><b>All Rights Reserved. &copy; 2019 <a target="blank" href="http://www.ptpn7.com"><b>PTPN7</b></a> Powered by : <a target="blank" href="<?php echo base_url('PMMB') ?>"><strong>PMMB</strong></a></b></p>
 					
 				</div>
 			</div>

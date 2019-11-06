@@ -1,7 +1,6 @@
 <div class="content-wrapper">
 
 
-
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1><font face="Book Antiqua">
@@ -14,20 +13,21 @@
             <li class="active"><font face="Book Antiqua">Jumlah TK Perwilayah</font></li>
 
         </ol>
-        <div class="callout <?php echo $this -> session->flashdata('message')['color'];?>">
-            <h4><?php echo $this -> session->flashdata('message')['title'];?></h4>
+        <div class="callout <?php echo $this->session->flashdata('message')['color']; ?>">
+            <h4><?php echo $this->session->flashdata('message')['title']; ?></h4>
             <p><?php echo $this->session->flashdata('message')['msg']; ?></p>
         </div>
         <!-- message end -->
     </section>
-    <div  class="box-body">
+    <div class="box-body">
         <div class="col-md-6">
-            <form  action="<?php echo base_url('JumlahTK/tampil') ?>" method="get">
+            <form  action="<?php echo base_url('JumlahTK/filterTKwilayah') ?>" method="get">
                 <div class="input-group">
-                    <select class="form-control" required="" id="ur" onChange="changeTextBox();" name="kat">
-                        <option value="">--Pilihan--</option>
-                        <?php foreach ($kat as $data): ?>
-                            <option value="<?php echo base64_encode($data->id_jumlah_tk) ?>"><?php echo $data->kategori_laporan_tk?></option>
+                    <select class="form-control" required="" id="thn" name="thn">
+                        <option value="">--Pilih Tahun--</option>
+                        <?php foreach ($tahun as $data): ?>
+                            <option value="<?php echo $data->tahun ?>"><?php
+                                echo $data->tahun?></option>
                         <?php endforeach; ?>
                     </select>
                     <span class="input-group-btn">
@@ -54,17 +54,19 @@
             <div class="loading">
                 <div align="center">
 
-                    <img  src="<?php echo base_url('assets/images/Loading1.GIF') ?>" width="20%">
+                    <img src="<?php echo base_url('assets/images/Loading1.GIF') ?>" width="20%">
                     <p></p>
-                    <p ><strong>Harap Tunggu, Sedang Memuat Halaman.</strong></p>
+                    <p><strong>Harap Tunggu, Sedang Memuat Halaman.</strong></p>
                 </div>
             </div>
         </div>
         <!-- /.box-header -->
-        <div  class="box-body">
+        <div class="box-body">
             <div class="panel panel-primary filterable">
                 <div class="panel-heading">
-                    <h3 class="panel-title">Jumlah enaga Kerja Perwilayah</h3>
+                    <h3 class="panel-title">Jumlah Tenaga Kerja Perwilayah Pada Tahun <?php foreach ($tahun as $data){ $thn[] = $data->tahun;
+						}
+						echo $thn[0];  ?> </h3>
                 </div>
                 <div class="table-responsive">
 
@@ -82,28 +84,51 @@
 
                         <tbody>
                         <?php
-                        foreach ($tampil as $data){
-                            $jumlah = round($data->karyawan_tetap+$data->karyawan_tidak_tetap);
-                            ?>
-                            <tr>
-                                <td><?php echo $data->wilayah ?></td>
-                                <td><?php echo $data->karyawan_tetap ?></td>
-                                <td><?php echo $data->karyawan_tidak_tetap ?></td>
-                                <td><?php echo $data->total ?></td>
-                                <td><?php echo $data->persen?>%</td>
-                                <?php } ?>
-                            </tr>
+                        foreach ($tampil as $data):
+                            $wilayah[] = $data->wilayah;
+                            $k_tetap[] = $data->karyawan_tetap;
+                            $k_tidak_tetap[] = $data->karyawan_tidak_tetap;
+
+                            $jumlah = 0;
+                            $jumlahTotal[] = $data->karyawan_tetap+$data->karyawan_tidak_tetap;
+                        endforeach;
+                        ?>
+
+                        <?php
+                        $totalNilai = array_sum($jumlahTotal);
+
+                        for ($i = 0; $i<count($k_tetap); $i++){
+                            $total[] = $k_tetap[$i] + $k_tidak_tetap[$i];
+                        ?>
+                        <tr>
+                            <td><?php echo $wilayah[$i] ?></td>
+                            <td><?php echo $k_tetap[$i] ?></td>
+                            <td><?php echo $k_tidak_tetap[$i] ?></td>
+                            <td><?php echo $total[$i] ?></td>
+                            <td><?php echo round($total[$i]/$totalNilai*100) ?>%</td>
+                        </tr>
+                        <?php } ?>
+                        <tr>
+                            <td><b>Jumlah</b></td>
+                            <td><?php echo array_sum($k_tetap) ?></td>
+                            <td><?php echo array_sum($k_tidak_tetap) ?></td>
+                            <td><?php echo $totalNilai ?></td>
+                            <td><?php echo 100 ?>%</td>
+                        </tr>
                         </tbody>
                     </table>
                 </div>
                 <div class="box">
                     <div class="box-header">
-                        <a  href="<?php echo base_url('Tambah') ?>">
-                            <button  type="button" class="btn btn-primary pull-right">
+                        <a href="<?php echo base_url('JumlahTK/tambah_perWilayah') ?>">
+                            <button type="button" class="btn btn-primary pull-right">
                                 <i class="glyphicon glyphicon-edit"></i>
                                 Tambah Data
                             </button>
                         </a>
+						<p style="margin-right: 15px">Info : <br>Klik
+							<a href="<?php echo base_url('JumlahTK/EditTKperWilayah') ?>"><b>Disini</b></a> untuk melakukan perubahan
+							data</p>
                     </div>
                 </div>
             </div>

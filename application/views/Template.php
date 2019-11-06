@@ -257,12 +257,7 @@
 
                     <?php }else  {?>
 
-
-
-
                     <?php } ?>
-
-
 
 					<li class="dropdown user user-menu">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -320,9 +315,6 @@
 		</nav>
 	</header>
 
-
-
-
 	<!-- Left side column. contains the logo and sidebar -->
 	<aside class="main-sidebar">
 		<!-- sidebar: style can be found in sidebar.less -->
@@ -340,7 +332,7 @@
 
 	<footer class="main-footer"><font face="Book Antiqua">
 		<strong>Copyright &copy; 2019 <a href="http://www.ptpn7.com">PT Perkebunan Nusantara VII</a></strong> All rights
-            reserved.</font>
+            reserved. Powered by : <a target="blank" href="<?php echo base_url('PMMB') ?>">PMMB</font>
 	</footer>
 
 	<!-- Control Sidebar -->
@@ -577,11 +569,7 @@
 	})
 </script>
 
-
-
 <script>
-
-
 
     $(document).ready(function(){
         $('.filterable .btn-filter').click(function(){

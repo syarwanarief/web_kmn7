@@ -548,8 +548,6 @@ class PengembanganSDM extends CI_Controller
 
     public function Oktober()
     {
-
-
                 $id = $_SESSION['nopek'];
                 $data['web'] = array(
 
@@ -572,11 +570,7 @@ class PengembanganSDM extends CI_Controller
                 $AG = 'Oktober';
                 $data['sdm'] = $this->Query->Periode($AG);
 
-
                 $this->load->view('Template', $data);
-
-
-
     }
 
     public function November()

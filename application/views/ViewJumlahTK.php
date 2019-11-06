@@ -17,9 +17,6 @@
         <!-- message end -->
     </section>
 
-
-
-
     <section class="content">
         <!-- SELECT2 EXAMPLE -->
             <!-- /.box-header -->
