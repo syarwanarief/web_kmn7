@@ -12,6 +12,11 @@ class Query extends CI_Model{
         return $hasil->result();
     }
 
+	public function getNopek($nopek){
+		$data = $this->db->query("select * from master_data_karyawan where nopek='$nopek'");
+		return $data->result();
+	}
+
 	function get_unit($unit){
 		$hasil=$this->db->query("SELECT * FROM jumlah_tk_perunit WHERE unit='$unit'");
 		return $hasil->result();
@@ -446,6 +451,11 @@ return $query->result();
         $query=$this->db->query("SELECT a.*,b.nama,c.k_pelatihan FROM (SELECT * FROM `p_sdm`) as a LEFT JOIN (SELECT nama,nopek FROM master_data_karyawan) as b on a.nopek = b.nopek Left JOIN (SELECT  * from master_k_pelatihan)as c on a.kode_pelatihan = c.kode_pelatihan ORDER By waktu_input ASC");
         return $query -> result();
     }
+
+	function getPelatihan($nopek){
+		$query=$this->db->query("SELECT a.*,b.nama,c.k_pelatihan FROM (SELECT * FROM `p_sdm` where nopek = $nopek) as a LEFT JOIN (SELECT nama,nopek FROM master_data_karyawan) as b on a.nopek = b.nopek Left JOIN (SELECT  * from master_k_pelatihan)as c on a.kode_pelatihan = c.kode_pelatihan ORDER By waktu_input ASC");
+		return $query -> result();
+	}
 
 //--------------------------------------Join ----------------------------------
 

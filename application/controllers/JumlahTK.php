@@ -814,7 +814,6 @@ class JumlahTK extends CI_Controller
 			$this->flsh_msg('Gagal.', 'warning', 'Simpan Gagal' . $input_data['error']['message']);
 		endif;
 
-
 	}
 
 	function SimpanPerubahanTKperWilayah()

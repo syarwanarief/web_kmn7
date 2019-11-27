@@ -18,9 +18,6 @@
         <!-- message end -->
     </section>
 
-
-
-
     <section class="content">
 
 

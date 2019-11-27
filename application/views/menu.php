@@ -37,8 +37,13 @@
         </a>
     </li>
 	<li class="active">
-		<a href="<?php echo base_url('MenuUtama'); ?>">
-			<i class="fa fa-list-ul"></i> <span><font face="Book Antiqua">Evaluasi Pasca Pelatihan</font></span>
+		<a href="<?php echo base_url('Pelatihan/user'); ?>">
+			<i class="fa fa-dedent"></i> <span><font face="Book Antiqua">Evaluasi Pasca Pelatihan</font></span>
+		</a>
+	</li>
+	<li class="active">
+		<a href="<?php echo base_url('Pelatihan/riwayat'); ?>">
+			<i class="fa fa-folder-open-o"></i> <span><font face="Book Antiqua">Riwayat Pelatihan</font></span>
 		</a>
 	</li>
 
@@ -66,15 +71,28 @@
 		<li class="treeview">
 			<a href="#">
 				<i class="fa fa-mortar-board"></i>
-				<span><font face="Book Antiqua">Pelatihan</font></span>
+				<span><font face="Book Antiqua">Evaluasi Pasca Pelatihan</font></span>
 				<span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
 			</a>
 			<ul class="treeview-menu">
-				<li><a href="<?php echo base_url('#') ?>"><i class="fa fa-user-plus"></i><span><font face="Book Antiqua">Input Data Pelatihan</font></a></li>
-				<li><a href="<?php echo base_url('Survey/index') ?>"><i class="fa fa-gear"></i><span><font face="Book Antiqua">Kelola Evaluasi Pasca Pelatihan</font></a></li>
+				<li><a href="<?php echo base_url('Pelatihan') ?>"><i class="glyphicon glyphicon-ok"></i><span><font face="Book Antiqua">Daftar Penilaian</font></a></li>
+				<li><a href="<?php echo base_url('Pelatihan/laporanEvaluasi') ?>"><i class="glyphicon glyphicon-list-alt"></i><span><font face="Book Antiqua">Laporan Evaluasi</font></a></li>
 			</ul>
+		</li>
+
+		<li class="treeview">
+			<a href="#">
+				<i class="glyphicon glyphicon-retweet"></i>
+				<span><font face="Book Antiqua">Kelola Evaluasi Pelatihan</font></span>
+				<span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+			</a>
+			<ul class="treeview-menu">
+				<li><a href="<?php echo base_url('Survey/index') ?>"><i class="fa fa-gear"></i><span><font face="Book Antiqua">Pertanyaan Evaluasi</font></a></li>
+				</ul>
 		</li>
 
         <li class="treeview">
@@ -93,7 +111,7 @@
 
         <li class="treeview">
             <a href="#">
-                <i class="fa fa-address-card"></i>
+                <i class="glyphicon glyphicon-list-alt"></i>
                 <span><font face="Book Antiqua">Laporan Data KM</font></span>
                 <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>

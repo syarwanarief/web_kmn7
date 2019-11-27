@@ -40,13 +40,6 @@
             </div>
         </div>
 
-
-
-
-
-
-
-
         <div class="box">
             <div class="box-header">
 
@@ -143,11 +136,8 @@
             <!-- /.box-body -->
         </div>
 
-
 </section>
 <!-- right col (We are only adding the ID to make the widgets sortable)-->
-
-
 
 <!-- right col -->
 </div>

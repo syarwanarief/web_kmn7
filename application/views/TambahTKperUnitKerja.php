@@ -117,7 +117,7 @@
                             var i;
                             for (i = 0; i < data.length; i++) {
                                 html = data[i].karyawan_tetap;
-                                html2 = data[i].karyawan_tidak_tetap
+                                html2 = data[i].karyawan_tidak_tetap;
                             }
                             console.log(html);
                             document.getElementById('kar_tetap').value = html;
