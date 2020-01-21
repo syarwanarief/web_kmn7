@@ -102,7 +102,7 @@
 							foreach ($tampil as $data):
 								$id = $data->no_tugas;
 								?>
-								<form action="<?php echo base_url('Pelatihan/survey') ?>" method="post">
+								<form action="<?php echo base_url('pelatihanAnda/survey') ?>" method="post">
 									<tr>
 
 										<input type="text" value="<?php echo $data->id ?>" style="display: none"
@@ -117,6 +117,8 @@
 										<td><?php echo $data->unit_peserta ?></td>
 										<td><?php echo $data->unit_saat_pelatihan ?></td>
 										<td><input name="no_tugas" id="no_tugas" value="<?php echo $data->no_tugas ?>"
+												   style="display: none">
+											<input name="nopek_peserta" id="nopek_peserta" value="<?php echo $data->nopek_peserta ?>"
 												   style="display: none">
 											<?php echo $data->no_tugas ?></td>
 										<td><?php echo $data->judul_nama ?></td>

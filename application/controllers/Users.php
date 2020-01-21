@@ -29,10 +29,6 @@ class Users extends CI_Controller {
         $this->load->model('Query');
         date_default_timezone_set('Asia/Jakarta');
 
-
-
-
-
     }
     public function flsh_msg($title,$type,$msg)
     {
@@ -194,16 +190,8 @@ class Users extends CI_Controller {
 
     }
 
-
-
-
-
-
     public function register()
     {
-
-
-
         #cek jika ada post submit
         if(isset($_POST['register-submit'])):
             $nik	    = $this -> input -> post("nopekUser1");

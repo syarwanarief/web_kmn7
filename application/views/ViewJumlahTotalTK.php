@@ -54,7 +54,6 @@
 				</div>
 			</form>
 		</div>
-
 	</div>
 
 	<section class="content">
@@ -77,10 +76,7 @@
 			<div class="box-body">
 				<div class="panel panel-primary filterable">
 					<div class="panel-heading">
-						<h3 class="panel-title">Jumlah Total Tenaga Kerja Pada Tahun <?php foreach ($tampil as $data) {
-								$thn[] = $data->tahun;
-							}
-							echo $thn[0]; ?></h3>
+						<h3 class="panel-title">Jumlah Total Tenaga Kerja </h3>
 					</div>
 					<div class="table-responsive">
 
@@ -101,22 +97,27 @@
 								$k_tetap = $data->karyawan_tetap;
 								$k_tidak_tetap = $data->karyawan_tidak_tetap;
 
-							endforeach; ?>
-							<tr>
-								<td><?php echo "Karyawan Tetap" ?></td>
-								<td><?php echo $k_tetap ?></td>
-								<td><?php echo round($k_tetap / ($k_tetap + $k_tidak_tetap) * 100) ?>%</td>
-							</tr>
-							<tr>
-								<td><?php echo "Karyawan Tidak Tetap" ?></td>
-								<td><?php echo $k_tidak_tetap ?></td>
-								<td><?php echo round($k_tidak_tetap / ($k_tetap + $k_tidak_tetap) * 100) ?>%</td>
-							</tr>
-							<tr>
-								<td><?php echo "Total Karyawan" ?></td>
-								<td><?php echo $k_tetap + $k_tidak_tetap ?></td>
-								<td>100%</td>
-							</tr>
+							endforeach;
+							if (!empty($k_tetap)) {
+								?>
+								<tr>
+									<td><?php echo "Karyawan Tetap" ?></td>
+									<td><?php echo $k_tetap ?></td>
+									<td><?php echo round($k_tetap / ($k_tetap + $k_tidak_tetap) * 100) ?>%</td>
+								</tr>
+								<tr>
+									<td><?php echo "Karyawan Tidak Tetap" ?></td>
+									<td><?php echo $k_tidak_tetap ?></td>
+									<td><?php echo round($k_tidak_tetap / ($k_tetap + $k_tidak_tetap) * 100) ?>%</td>
+								</tr>
+								<tr>
+									<td><?php echo "Total Karyawan" ?></td>
+									<td><?php echo $k_tetap + $k_tidak_tetap ?></td>
+									<td>100%</td>
+								</tr>
+							<?php } else {
+								echo "Data tahun ini belum tersedia ";
+							} ?>
 							</tbody>
 						</table>
 					</div>

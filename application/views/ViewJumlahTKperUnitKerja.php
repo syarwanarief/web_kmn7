@@ -76,11 +76,7 @@
             <div class="box-body">
                 <div class="panel panel-primary filterable">
                     <div class="panel-heading">
-                        <h3 class="panel-title">Jumlah Tenaga Kerja Per Unit Kerja Pada
-                            Tahun <?php foreach ($tahun as $data) {
-								$thn[] = $data->tahun;
-							}
-							echo $thn[0]; ?> </h3>
+                        <h3 class="panel-title">Jumlah Tenaga Kerja Per Unit Kerja </h3>
                     </div>
                     <div class="table-responsive">
                         <table class="table table-bordered table-striped" border="2">
@@ -111,6 +107,9 @@
 
                                 $jumlahTotal[] = $data->karyawan_tetap + $data->karyawan_honor;
                             endforeach;
+
+                            if (!empty($unit)){
+
                             ?>
 
                             <?php
@@ -141,7 +140,9 @@
 
                             </tbody>
                         </table>
-
+						<?php }else{
+							echo "Data tahun ini belum tersedia ";
+						} ?>
                     </div>
                     <div class="box">
                         <div class="box-header">

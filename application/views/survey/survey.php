@@ -32,7 +32,7 @@
 			</div>
 		</div>
 
-		<form action="<?php echo base_url('pelatihanAnda/simpanSurvey') ?>" method="post">
+		<form action="<?php echo base_url('Pelatihan/simpanSurvey') ?>" method="post">
 			<div class="box" style="padding: 20px">
 				<div class="row" style="padding: 10px">
 					<center><h3>EVALUASI PASCA PELATIHAN</h3></center>
@@ -100,15 +100,6 @@
 					<input type="hidden" name="no_tugas"
 						   value="<?php foreach ($tampil as $data): echo $data->no_tugas; endforeach; ?>">
 
-					<input type="hidden" name="nopek_peserta"
-						   value="<?php foreach ($tampil as $data): echo $data->nopek_peserta; endforeach; ?>">
-
-					<input type="hidden" name="strata"
-						   value="<?php foreach ($tampil as $data): echo $data->strata_peserta; endforeach; ?>">
-
-					<input type="hidden" name="tahunn"
-						   value="<?php foreach ($tampil as $data): echo substr("$data->tgl_selesai",0,4); endforeach; ?>">
-
 					<div style="padding-left: 40px">
 						<label><u>Petunjuk:</u></label>
 						<p>
@@ -153,19 +144,19 @@
 										<?php echo $soal1[0] ?>
 									</th>
 									<th>
-										<input type="radio" required="" name="jawaban1Soal1" value="1"> 1
+										<input type="radio" name="jawaban1Soal1" value="1"> 1
 									</th>
 									<th>
-										<input type="radio" required="" name="jawaban1Soal1" value="2"> 2
+										<input type="radio" name="jawaban1Soal1" value="2"> 2
 									</th>
 									<th>
-										<input type="radio" required="" name="jawaban1Soal1" value="3"> 3
+										<input type="radio" name="jawaban1Soal1" value="3"> 3
 									</th>
 									<th>
-										<input type="radio" required="" name="jawaban1Soal1" value="4"> 4
+										<input type="radio" name="jawaban1Soal1" value="4"> 4
 									</th>
 									<th>
-										<input type="radio" required="" name="jawaban1Soal1" value="5"> 5
+										<input type="radio" name="jawaban1Soal1" value="5"> 5
 									</th>
 								</tr>
 								<tr>
@@ -178,19 +169,19 @@
 										<?php echo $soal1[1] ?>
 									</th>
 									<th>
-										<input type="radio" required="" name="jawaban1Soal2" value="1"> 1
+										<input type="radio" name="jawaban1Soal2" value="1"> 1
 									</th>
 									<th>
-										<input type="radio" required="" name="jawaban1Soal2" value="2"> 2
+										<input type="radio" name="jawaban1Soal2" value="2"> 2
 									</th>
 									<th>
-										<input type="radio" required="" name="jawaban1Soal2" value="3"> 3
+										<input type="radio" name="jawaban1Soal2" value="3"> 3
 									</th>
 									<th>
-										<input type="radio" required="" name="jawaban1Soal2" value="4"> 4
+										<input type="radio" name="jawaban1Soal2" value="4"> 4
 									</th>
 									<th>
-										<input type="radio" required="" name="jawaban1Soal2" value="5"> 5
+										<input type="radio" name="jawaban1Soal2" value="5"> 5
 									</th>
 								</tr>
 								<tr>
@@ -203,19 +194,19 @@
 										<?php echo $soal1[2] ?>
 									</th>
 									<th>
-										<input type="radio" required="" name="jawaban1Soal3" value="1"> 1
+										<input type="radio" name="jawaban1Soal3" value="1"> 1
 									</th>
 									<th>
-										<input type="radio" required="" name="jawaban1Soal3" value="2"> 2
+										<input type="radio" name="jawaban1Soal3" value="2"> 2
 									</th>
 									<th>
-										<input type="radio" required="" name="jawaban1Soal3" value="3"> 3
+										<input type="radio" name="jawaban1Soal3" value="3"> 3
 									</th>
 									<th>
-										<input type="radio" required="" name="jawaban1Soal3" value="4"> 4
+										<input type="radio" name="jawaban1Soal3" value="4"> 4
 									</th>
 									<th>
-										<input type="radio" required="" name="jawaban1Soal3" value="5"> 5
+										<input type="radio" name="jawaban1Soal3" value="5"> 5
 									</th>
 								</tr>
 							</table>
@@ -253,19 +244,19 @@
 										<?php echo $soal2[0] ?>
 									</th>
 									<th>
-										<input type="radio" required="" name="jawaban2Soal1" value="1"> 1
+										<input type="radio" name="jawaban2Soal1" value="1"> 1
 									</th>
 									<th>
-										<input type="radio" required="" name="jawaban2Soal1" value="2"> 2
+										<input type="radio" name="jawaban2Soal1" value="2"> 2
 									</th>
 									<th>
-										<input type="radio" required="" name="jawaban2Soal1" value="3"> 3
+										<input type="radio" name="jawaban2Soal1" value="3"> 3
 									</th>
 									<th>
-										<input type="radio" required="" name="jawaban2Soal1" value="4"> 4
+										<input type="radio" name="jawaban2Soal1" value="4"> 4
 									</th>
 									<th>
-										<input type="radio" required="" name="jawaban2Soal1" value="5"> 5
+										<input type="radio" name="jawaban2Soal1" value="5"> 5
 									</th>
 								</tr>
 								<tr>
@@ -278,19 +269,19 @@
 										<?php echo $soal2[1] ?>
 									</th>
 									<th>
-										<input type="radio" required="" name="jawaban2Soal2" value="1"> 1
+										<input type="radio" name="jawaban2Soal2" value="1"> 1
 									</th>
 									<th>
-										<input type="radio" required="" name="jawaban2Soal2" value="2"> 2
+										<input type="radio" name="jawaban2Soal2" value="2"> 2
 									</th>
 									<th>
-										<input type="radio" required="" name="jawaban2Soal2" value="3"> 3
+										<input type="radio" name="jawaban2Soal2" value="3"> 3
 									</th>
 									<th>
-										<input type="radio" required="" name="jawaban2Soal2" value="4"> 4
+										<input type="radio" name="jawaban2Soal2" value="4"> 4
 									</th>
 									<th>
-										<input type="radio" required="" name="jawaban2Soal2" value="5"> 5
+										<input type="radio" name="jawaban2Soal2" value="5"> 5
 									</th>
 								</tr>
 								<tr>
@@ -303,19 +294,19 @@
 										<?php echo $soal2[2] ?>
 									</th>
 									<th>
-										<input type="radio" required="" name="jawaban2Soal3" value="1"> 1
+										<input type="radio" name="jawaban2Soal3" value="1"> 1
 									</th>
 									<th>
-										<input type="radio" required="" name="jawaban2Soal3" value="2"> 2
+										<input type="radio" name="jawaban2Soal3" value="2"> 2
 									</th>
 									<th>
-										<input type="radio" required="" name="jawaban2Soal3" value="3"> 3
+										<input type="radio" name="jawaban2Soal3" value="3"> 3
 									</th>
 									<th>
-										<input type="radio" required="" name="jawaban2Soal3" value="4"> 4
+										<input type="radio" name="jawaban2Soal3" value="4"> 4
 									</th>
 									<th>
-										<input type="radio" required="" name="jawaban2Soal3" value="5"> 5
+										<input type="radio" name="jawaban2Soal3" value="5"> 5
 									</th>
 								</tr>
 								<tr>
@@ -328,19 +319,19 @@
 										<?php echo $soal2[3] ?>
 									</th>
 									<th>
-										<input type="radio" required="" name="jawaban2Soal4" value="1"> 1
+										<input type="radio" name="jawaban2Soal4" value="1"> 1
 									</th>
 									<th>
-										<input type="radio" required="" name="jawaban2Soal4" value="2"> 2
+										<input type="radio" name="jawaban2Soal4" value="2"> 2
 									</th>
 									<th>
-										<input type="radio" required="" name="jawaban2Soal4" value="3"> 3
+										<input type="radio" name="jawaban2Soal4" value="3"> 3
 									</th>
 									<th>
-										<input type="radio" required="" name="jawaban2Soal4" value="4"> 4
+										<input type="radio" name="jawaban2Soal4" value="4"> 4
 									</th>
 									<th>
-										<input type="radio" required="" name="jawaban2Soal4" value="5"> 5
+										<input type="radio" name="jawaban2Soal4" value="5"> 5
 									</th>
 								</tr>
 								<tr>
@@ -353,19 +344,19 @@
 										<?php echo $soal2[4] ?>
 									</th>
 									<th>
-										<input type="radio" required="" name="jawaban2Soal5" value="1"> 1
+										<input type="radio" name="jawaban2Soal5" value="1"> 1
 									</th>
 									<th>
-										<input type="radio" required="" name="jawaban2Soal5" value="2"> 2
+										<input type="radio" name="jawaban2Soal5" value="2"> 2
 									</th>
 									<th>
-										<input type="radio" required="" name="jawaban2Soal5" value="3"> 3
+										<input type="radio" name="jawaban2Soal5" value="3"> 3
 									</th>
 									<th>
-										<input type="radio" required="" name="jawaban2Soal5" value="4"> 4
+										<input type="radio" name="jawaban2Soal5" value="4"> 4
 									</th>
 									<th>
-										<input type="radio" required="" name="jawaban2Soal5" value="5"> 5
+										<input type="radio" name="jawaban2Soal5" value="5"> 5
 									</th>
 								</tr>
 							</table>
@@ -403,19 +394,19 @@
 										<?php echo $soal3[0] ?>
 									</th>
 									<th>
-										<input type="radio" required="" name="jawaban3Soal1" value="1" onchange="hide3();"> 1
+										<input type="radio" name="jawaban3Soal1" value="1" onchange="hide3();"> 1
 									</th>
 									<th>
-										<input type="radio" required="" name="jawaban3Soal1" value="2" onchange="hide3();"> 2
+										<input type="radio" name="jawaban3Soal1" value="2" onchange="hide3();"> 2
 									</th>
 									<th>
-										<input type="radio" required="" name="jawaban3Soal1" value="3" onchange="hide3();"> 3
+										<input type="radio" name="jawaban3Soal1" value="3" onchange="hide3();"> 3
 									</th>
 									<th>
-										<input type="radio" required="" name="jawaban3Soal1" value="4" onchange="show3();"> 4
+										<input type="radio" name="jawaban3Soal1" value="4" onchange="show3();"> 4
 									</th>
 									<th>
-										<input type="radio" required="" name="jawaban3Soal1" value="5" onchange="show3();"> 5
+										<input type="radio" name="jawaban3Soal1" value="5" onchange="show3();"> 5
 									</th>
 								</tr>
 								<tr>
@@ -428,19 +419,19 @@
 										<?php echo $soal3[1] ?>
 									</th>
 									<th>
-										<input type="radio" required="" name="jawaban3Soal2" value="1"> 1
+										<input type="radio" name="jawaban3Soal2" value="1"> 1
 									</th>
 									<th>
-										<input type="radio" required="" name="jawaban3Soal2" value="2"> 2
+										<input type="radio" name="jawaban3Soal2" value="2"> 2
 									</th>
 									<th>
-										<input type="radio" required="" name="jawaban3Soal2" value="3"> 3
+										<input type="radio" name="jawaban3Soal2" value="3"> 3
 									</th>
 									<th>
-										<input type="radio" required=""  name="jawaban3Soal2" value="4" onclick="hide3();"> 4
+										<input type="radio" name="jawaban3Soal2" value="4" onclick="hide3();"> 4
 									</th>
 									<th>
-										<input type="radio" required=""  name="jawaban3Soal2" value="5" onclick="hide3();"> 5
+										<input type="radio" name="jawaban3Soal2" value="5" onclick="hide3();"> 5
 									</th>
 								</tr>
 								<tr>
@@ -453,19 +444,19 @@
 										<?php echo $soal3[2] ?>
 									</th>
 									<th>
-										<input type="radio" required=""  name="jawaban3Soal3" value="1"> 1
+										<input type="radio" name="jawaban3Soal3" value="1"> 1
 									</th>
 									<th>
-										<input type="radio" required=""  name="jawaban3Soal3" value="2"> 2
+										<input type="radio" name="jawaban3Soal3" value="2"> 2
 									</th>
 									<th>
-										<input type="radio" required=""  name="jawaban3Soal3" value="3"> 3
+										<input type="radio" name="jawaban3Soal3" value="3"> 3
 									</th>
 									<th>
-										<input type="radio" required=""  name="jawaban3Soal3" value="4"> 4
+										<input type="radio" name="jawaban3Soal3" value="4"> 4
 									</th>
 									<th>
-										<input type="radio" required=""  name="jawaban3Soal3" value="5"> 5
+										<input type="radio" name="jawaban3Soal3" value="5"> 5
 									</th>
 								</tr>
 
@@ -479,19 +470,19 @@
 										<?php echo $soal3[3] ?>
 									</th>
 									<th>
-										<input type="radio" required=""  name="jawaban3Soal4" value="1"> 1
+										<input type="radio" name="jawaban3Soal4" value="1"> 1
 									</th>
 									<th>
-										<input type="radio" required=""  name="jawaban3Soal4" value="2"> 2
+										<input type="radio" name="jawaban3Soal4" value="2"> 2
 									</th>
 									<th>
-										<input type="radio" required=""  name="jawaban3Soal4" value="3"> 3
+										<input type="radio" name="jawaban3Soal4" value="3"> 3
 									</th>
 									<th>
-										<input type="radio" required=""  name="jawaban3Soal4" value="4"> 4
+										<input type="radio" name="jawaban3Soal4" value="4"> 4
 									</th>
 									<th>
-										<input type="radio" required=""  name="jawaban3Soal4" value="5"> 5
+										<input type="radio" name="jawaban3Soal4" value="5"> 5
 									</th>
 								</tr>
 							</table>
@@ -583,19 +574,19 @@
 										<?php echo $soal4[0] ?>
 									</th>
 									<th>
-										<input type="radio" required=""  name="jawaban4Soal1" value="1"> 1
+										<input type="radio" name="jawaban4Soal1" value="1"> 1
 									</th>
 									<th>
-										<input type="radio" required=""  name="jawaban4Soal1" value="2"> 2
+										<input type="radio" name="jawaban4Soal1" value="2"> 2
 									</th>
 									<th>
-										<input type="radio" required=""  name="jawaban4Soal1" value="3"> 3
+										<input type="radio" name="jawaban4Soal1" value="3"> 3
 									</th>
 									<th>
-										<input type="radio" required=""  name="jawaban4Soal1" value="4"> 4
+										<input type="radio" name="jawaban4Soal1" value="4"> 4
 									</th>
 									<th>
-										<input type="radio" required=""  name="jawaban4Soal1" value="5"> 5
+										<input type="radio" name="jawaban4Soal1" value="5"> 5
 									</th>
 								</tr>
 								<tr>
@@ -608,19 +599,19 @@
 										<?php echo $soal4[1] ?>
 									</th>
 									<th>
-										<input type="radio" required=""  name="jawaban4Soal2" value="1"> 1
+										<input type="radio" name="jawaban4Soal2" value="1"> 1
 									</th>
 									<th>
-										<input type="radio" required=""  name="jawaban4Soal2" value="2"> 2
+										<input type="radio" name="jawaban4Soal2" value="2"> 2
 									</th>
 									<th>
-										<input type="radio" required=""  name="jawaban4Soal2" value="3"> 3
+										<input type="radio" name="jawaban4Soal2" value="3"> 3
 									</th>
 									<th>
-										<input type="radio" required=""  name="jawaban4Soal2" value="4"> 4
+										<input type="radio" name="jawaban4Soal2" value="4"> 4
 									</th>
 									<th>
-										<input type="radio" required=""  name="jawaban4Soal2" value="5"> 5
+										<input type="radio" name="jawaban4Soal2" value="5"> 5
 									</th>
 								</tr>
 							</table>
@@ -657,19 +648,19 @@
 										<?php echo $soal5[0] ?>
 									</th>
 									<th>
-										<input type="radio" required=""  name="jawaban5Soal1" value="1" onchange="hide5();"> 1
+										<input type="radio" name="jawaban5Soal1" value="1" onchange="hide5();"> 1
 									</th>
 									<th>
-										<input type="radio" required=""  name="jawaban5Soal1" value="2" onchange="hide5();"> 2
+										<input type="radio" name="jawaban5Soal1" value="2" onchange="hide5();"> 2
 									</th>
 									<th>
-										<input type="radio" required=""  name="jawaban5Soal1" value="3" onchange="hide5();"> 3
+										<input type="radio" name="jawaban5Soal1" value="3" onchange="hide5();"> 3
 									</th>
 									<th>
-										<input type="radio" required=""  name="jawaban5Soal1" value="4" onchange="show5();"> 4
+										<input type="radio" name="jawaban5Soal1" value="4" onchange="show5();"> 4
 									</th>
 									<th>
-										<input type="radio" required=""  name="jawaban5Soal1" value="5" onchange="show5();"> 5
+										<input type="radio" name="jawaban5Soal1" value="5" onchange="show5();"> 5
 									</th>
 								</tr>
 								<tr>
@@ -682,19 +673,19 @@
 										<?php echo $soal5[1] ?>
 									</th>
 									<th>
-										<input type="radio" required=""  name="jawaban5Soal2" value="1"> 1
+										<input type="radio" name="jawaban5Soal2" value="1"> 1
 									</th>
 									<th>
-										<input type="radio" required=""  name="jawaban5Soal2" value="2"> 2
+										<input type="radio" name="jawaban5Soal2" value="2"> 2
 									</th>
 									<th>
-										<input type="radio" required=""  required="" name="jawaban5Soal2" value="3"> 3
+										<input type="radio" name="jawaban5Soal2" value="3"> 3
 									</th>
 									<th>
-										<input type="radio" required=""  name="jawaban5Soal2" value="4"> 4
+										<input type="radio" name="jawaban5Soal2" value="4"> 4
 									</th>
 									<th>
-										<input type="radio" required=""  name="jawaban5Soal2" value="5"> 5
+										<input type="radio" name="jawaban5Soal2" value="5"> 5
 									</th>
 								</tr>
 								<tr>
@@ -707,19 +698,19 @@
 										<?php echo $soal5[2] ?>
 									</th>
 									<th>
-										<input type="radio" required=""  name="jawaban5Soal3" value="1"> 1
+										<input type="radio" name="jawaban5Soal3" value="1"> 1
 									</th>
 									<th>
-										<input type="radio" required=""  name="jawaban5Soal3" value="2"> 2
+										<input type="radio" name="jawaban5Soal3" value="2"> 2
 									</th>
 									<th>
-										<input type="radio" required=""  name="jawaban5Soal3" value="3"> 3
+										<input type="radio" name="jawaban5Soal3" value="3"> 3
 									</th>
 									<th>
-										<input type="radio" required=""  name="jawaban5Soal3" value="4"> 4
+										<input type="radio" name="jawaban5Soal3" value="4"> 4
 									</th>
 									<th>
-										<input type="radio" required=""  name="jawaban5Soal3" value="5"> 5
+										<input type="radio" name="jawaban5Soal3" value="5"> 5
 									</th>
 								</tr>
 							</table>
@@ -809,10 +800,10 @@
 										<div align="center">1</div>
 									</td>
 									<Td>
-										<input class="form-control" name="jabatan1">
+										<input class="form-control" required="" name="jabatan1">
 									</Td>
 									<Td>
-										<input class="form-control" name="pelatihan1">
+										<input class="form-control" required="" name="pelatihan1">
 									</Td>
 								</tr>
 								<tr>
@@ -820,10 +811,10 @@
 										<div align="center">2</div>
 									</td>
 									<Td>
-										<input class="form-control" name="jabatan2">
+										<input class="form-control" required="" name="jabatan2">
 									</Td>
 									<Td>
-										<input class="form-control" name="pelatihan2">
+										<input class="form-control" required="" name="pelatihan2">
 									</Td>
 								</tr>
 								<tr>
@@ -831,10 +822,10 @@
 										<div align="center">3</div>
 									</td>
 									<Td>
-										<input class="form-control" name="jabatan3">
+										<input class="form-control" required="" name="jabatan3">
 									</Td>
 									<Td>
-										<input class="form-control" name="pelatihan3">
+										<input class="form-control" required="" name="pelatihan3">
 									</Td>
 								</tr>
 								</tbody>
@@ -843,7 +834,7 @@
 						<br><br>
 
 						<button style="margin-right: 20px" type="submit" name="submit" id="submit"
-								class="btn btn-primary pull-right" disabled>
+								class="btn btn-primary pull-right" required="" disabled>
 							submit
 						</button>
 					</div>

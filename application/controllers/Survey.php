@@ -136,7 +136,7 @@ class Survey extends CI_Controller
 			//  $this->flsh_msg('Sukses.','ok','data berhasil ditambah');
 			$this->flsh_msg('Berhasil', 'ok', 'Pertanyaan Berhasil Diubah');
 
-			redirect('Survey');
+			redirect('survey');
 
 		else:
 			$this->flsh_msg('Gagal.', 'warning', 'Simpan Gagal' . $query['error']['message']);
@@ -319,6 +319,124 @@ class Survey extends CI_Controller
 		else:
 			$this->flsh_msg('Gagal.', 'warning', 'Simpan Gagal' . $input_data['error']['message']);
 		endif;
+	}
+
+	public function inputEvaluasi()
+	{
+		$id = $_SESSION['nopek'];
+		$data['web'] = array(
+
+			'aktif_menu' => 'profil',
+			'page' => 'survey/EditEvaluasi5Tahun.php',
+			'is_trview' => false,
+			'is_table' => false,
+		);
+		$data['user'] = array(
+			'nik' => $this->nopek,
+			'level' => $this->user_level,
+			'foto' => $this->foto,
+			'inisial' => $this->inisial
+			// 'level' => $this->jabatan
+		);
+
+		$data['notif'] = $this->Query->getAllData('v_notif')->row();
+
+		$data['tampil'] = $this->db->query("select * from data_survey_5tahun order by tahun desc, strata asc")->result();
+
+		$data['pertanyaan1'] = $this->db->query("select * from master_pertanyaan where aspek_pertanyaan='Peningkatan Kompetensi (Aspek1)'")->result();
+		$data['pertanyaan2'] = $this->db->query("select * from master_pertanyaan where aspek_pertanyaan='Peningkatan Kinerja (Aspek2)'")->result();
+		$data['pertanyaan3'] = $this->db->query("select * from master_pertanyaan where aspek_pertanyaan='Implementasi Hasil Pelatihan (Aspek3)'")->result();
+		$data['pertanyaan4'] = $this->db->query("select * from master_pertanyaan where aspek_pertanyaan='Knowledge Sharing (Aspek4)'")->result();
+		$data['pertanyaan5'] = $this->db->query("select * from master_pertanyaan where aspek_pertanyaan='Peran Atasan (Aspek5)'")->result();
+
+		$this->load->view('Template', $data);
+	}
+
+	public function TambahEvaluasi()
+	{
+		$id = $_SESSION['nopek'];
+		$data['web'] = array(
+
+			'aktif_menu' => 'profil',
+			'page' => 'survey/inputEvaluasiPelatihan.php',
+			'is_trview' => false,
+			'is_table' => false,
+		);
+		$data['user'] = array(
+			'nik' => $this->nopek,
+			'level' => $this->user_level,
+			'foto' => $this->foto,
+			'inisial' => $this->inisial
+			// 'level' => $this->jabatan
+		);
+
+		$data['notif'] = $this->Query->getAllData('v_notif')->row();
+		$this->load->view('Template', $data);
+	}
+
+	public function simpanEvaluasi()
+	{
+
+		$strata = $this->input->post('strata');
+		$tahun = $this->input->post('tahun');
+		$skorR = $this->input->post('skorReal');
+		$skorT = $this->input->post('skorTarget');
+
+		$input_data = $this->Query->inputData(
+			array(
+				'strata' => $strata,
+				'tahun' => $tahun,
+				'skor_real' => $skorR,
+				'skor_target' => $skorT,
+				'waktu_input' => date("Y/m/d H:i:s"),
+			),
+			'data_survey_5tahun');
+
+		if ($input_data['error']['message'] == null):
+			//  $this->flsh_msg('Sukses.','ok','data berhasil ditambah');
+
+			$this->flsh_msg('Berhasil', 'ok', 'Data Berhasil  Di Simpan ');
+			redirect($_SERVER['HTTP_REFERER']);
+		else:
+			$this->flsh_msg('Gagal.', 'warning', 'Simpan Gagal' . $input_data['error']['message']);
+		endif;
+	}
+
+	public function SimpanPerubahanEvaluasi()
+	{
+
+		$id = $this->input->post('id');
+		$strata = $this->input->post('strata');
+		$tahun = $this->input->post('tahun');
+		$skor_real = $this->input->post('skor_real');
+		$skor_target = $this->input->post('skor_target');
+
+		$query = $this->Query->updateData(array('id' => $id),
+			array(
+				'strata' => $strata,
+				'tahun' => $tahun,
+				'skor_real' => $skor_real,
+				'skor_target' => $skor_target,
+			),
+			'data_survey_5tahun');
+
+		echo json_encode($query);
+	}
+
+	public function HapusPerubahanEvaluasi()
+	{
+
+		$id = $this->input->post('id');
+		$strata = $this->input->post('strata');
+		$tahun = $this->input->post('tahun');
+		$skor_real = $this->input->post('skor_real');
+		$skor_target = $this->input->post('skor_target');
+
+		$query = $this->Query->delData(array('id' => $id),
+
+			'data_survey_5tahun');
+
+		echo json_encode($query);
 	}
 
 }

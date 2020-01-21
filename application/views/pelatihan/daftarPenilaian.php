@@ -19,7 +19,6 @@
 
 	<section class="content">
 
-
 		<!-- SELECT2 EXAMPLE -->
 		<div class="box">
 

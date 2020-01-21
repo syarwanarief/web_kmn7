@@ -1,6 +1,12 @@
 <div class="content-wrapper">
 	<style>
-
+		.chartContainer {
+			position: relative;
+			margin: auto;
+			height: 70vh;
+			width: 70vh;
+			 
+		}
 	</style>
 
 	<!-- Content Header (Page header) -->
@@ -80,144 +86,116 @@
 				}
 			endforeach;
 
-			$hitungAspek1 = round($skorAspek1[0] * 20 / count($skorAspek1) + 40);
+			$hitungAspek1 = round(array_sum($skorAspek1) * 20 / count($skorAspek1));
+			$hitungAspek2 = round(array_sum($skorAspek2) * 20 / count($skorAspek2));
+			$hitungAspek3 = round(array_sum($skorAspek3) * 20 / count($skorAspek3));
+			$hitungAspek4 = round(array_sum($skorAspek4) * 20 / count($skorAspek4));
+			$hitungAspek5 = round(array_sum($skorAspek5) * 20 / count($skorAspek5));
+
+			$jumlahsoal = count($skorAspek1)+count($skorAspek2)+count($skorAspek3)+count($skorAspek4)+count($skorAspek5);
+
+			$jumlahAspek =  array_sum($skorAspek1) + array_sum($skorAspek2) + array_sum($skorAspek3)
+				+ array_sum($skorAspek4) + array_sum($skorAspek5);
+
+			$totalAspek = round($jumlahAspek* 20 / $jumlahsoal);
 
 			?>
 
-			<div class="box" style="padding: 20px">
-				<div class="row" style="padding: 10px">
+			<div class="box">
+				<div class="row">
+					<!---->
+					<h3 style="padding-left: 25px"><b>Skor Per Aspek Evaluasi Pelatihan</b></h3>
+					<div class="chartContainer">
+						<canvas id="radarCanvas"></canvas>
+					</div>
+
+
+					<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
+					<script>
+                        var graphData = {
+                            type: "radar",
+                            data: {
+                                labels: [
+                                    "Aspek 1",
+                                    "Aspek 2",
+                                    "Aspek 3",
+                                    "Aspek 4",
+                                    "Aspek 5"
+                                ],
+
+                                datasets: [
+                                    {
+                                        label: "Skor Aspek",
+                                        fill: true,
+                                        lineTension: 0,
+                                        backgroundColor: "rgba(255,140,0,0.3)",
+                                        borderDashOffset: 0.0,
+                                        pointBorderColor: "rgba(255,140,0,1)",
+                                        pointBackgroundColor: "rgba(255,140,0,0.5)",
+                                        pointBorderWidth: 2,
+                                        pointHoverRadius: 8,
+                                        pointHoverBackgroundColor: "rgba(75,192,192,1)",
+                                        pointHoverBorderColor: "rgba(220,220,220,1)",
+                                        pointHoverBorderWidth: 2,
+                                        pointRadius: 4,
+                                        pointHitRadius: 10,
+                                        paddingTop: 5,
+                                        data: [<?php echo $hitungAspek1 ?>,<?php echo $hitungAspek2 ?>,<?php echo $hitungAspek3 ?>,
+											<?php echo $hitungAspek4 ?>,<?php echo $hitungAspek5 ?>,],
+                                        spanGaps: false
+                                    }
+                                ]
+                            },
+                            options: {
+                                scale: {
+                                    ticks: {
+                                        min: 0, // suggestedMin: 0,
+                                        max: 100, //suggestedMax: 50
+                                        stepSize: 10
+                                    }
+                                },
+                                animation: {
+                                    duration: 2000,
+                                    easing: "easeOutElastic"
+                                },
+                                responsive: true
+                            }
+                        };
+
+
+                        var context = document.getElementById("radarCanvas").getContext("2d");
+
+                        var radarChart = new Chart(context, graphData); // Works fine
+
+                        // canvas2svg 'mock' context
+                        var svgContext = C2S(300, 300);
+
+                        // new chart on 'mock' context fails:
+                        var mySvg = new Chart(svgContext, graphData);
+                        // Failed to create chart: can't acquire context from the given item
+
+                        console.log(svgContext.getSerializedSvg(true));
+
+					</script>
+
+				</div>
+			</div>
+
+			<div class="box">
+				<div class="row">
 
 					<script src="https://www.koolchart.com/demo/LicenseKey/codepen/KoolChartLicense.js"></script>
 					<script src="https://www.koolchart.com/demo/KoolChart/JS/KoolChart.js"></script>
 					<link rel="stylesheet" href="https://www.koolchart.com/demo/KoolChart/Assets/Css/KoolChart.css"/>
-					<div id="chartHolder" style="height:500px; width:100%;"></div>
+					<h3 style="padding-top: 50px; padding-left: 25px"><b>Skor Total Evaluasi Pelatihan</b></h3>
 
-					<script>
-                        var chartVars = "KoolOnLoadCallFunction=chartReadyHandler";
+					<div align="center"><font size="100" color="#ff7f50"> <?php echo $totalAspek; ?>%</font></div>
 
-                        KoolChart.create("chart1", "chartHolder", chartVars, "100%", "100%");
+				</div>
+			</div>
 
-                        function chartReadyHandler(id) {
-                            document.getElementById(id).setLayout(layoutStr);
-                            document.getElementById(id).setData(chartData);
-                        }
-
-                        var layoutStr =
-                            '<KoolChart backgroundColor="#FFFFFF"  borderStyle="none">'
-                            +'<Options>'
-                            +'<Caption text="Hasil Skor Evaluasi Pelatihan" fontFamily="Malgun Gothic"/>'
-                            +'<Legend useVisibleCheck="true" fontFamily="Malgun Gothic"/>'
-                            +'</Options>'
-                            +'<RadarChart id="chart1" isSeriesOnAxis="true" type="circle" paddingTop="25" paddingBottom="25" showDataTips="true">'
-                            +'<backgroundElements>'
-                            +'<RadarGridLines>'
-                            +'<radarAlternateFill>'
-                            +'<SolidColor color="#ffffff"/>'
-                            +'</radarAlternateFill>'
-                            +'</RadarGridLines>'
-                            +'</backgroundElements>'
-                            +'<radialAxis>'
-                            +'<LinearAxis id="rAxis"/>'
-                            +'</radialAxis>'
-                            +'<angularAxis>'
-                            +'<CategoryAxis id="aAxis" categoryField="catName" displayName="Category"/>'
-                            +'</angularAxis>'
-                            +'<radialAxisRenderers>'
-                            +'<Axis2DRenderer axis="{rAxis}" horizontal="true" visible="true" tickPlacement="outside" tickLength="4">'
-                            +'<axisStroke>'
-                            +'<Stroke color="#555555" weight="1"/>'
-                            +'</axisStroke>'
-                            +'</Axis2DRenderer>'
-                            +'<Axis2DRenderer axis="{rAxis}" horizontal="false" visible="true" tickPlacement="outside" tickLength="4">'
-                            +'<axisStroke>'
-                            +'<Stroke color="#555555" weight="1"/>'
-                            +'</axisStroke>'
-                            +'</Axis2DRenderer>'
-                            +'</radialAxisRenderers>'
-                            +'<angularAxisRenderers>'
-                            +'<AngularAxisRenderer axis="{aAxis}"/>'
-                            +'</angularAxisRenderers>'
-                            +'<series>'
-                            +'<RadarSeries field="aspek1" displayName="Aspek 1">'
-                            +'<stroke>'
-                            +'<Stroke color="#03a9f5" weight="2"/>'
-                            +'</stroke>'
-                            +'<lineStroke>'
-                            +'<Stroke color="#03a9f5" weight="2"/>'
-                            +'</lineStroke>'
-                            +'<showDataEffect>'
-                            +'<SeriesInterpolate/>'
-                            +'</showDataEffect>'
-                            +'</RadarSeries>'
-                            +'<RadarSeries field="aspek2" displayName="Aspek 2">'
-                            +'<stroke>'
-                            +'<Stroke color="#4352a5" weight="2"/>'
-                            +'</stroke>'
-                            +'<lineStroke>'
-                            +'<Stroke color="#4352a5" weight="2"/>'
-                            +'</lineStroke>'
-                            +'<areaFill>'
-                            +'<SolidColor color="#4352a5" alpha="0.3"/>'
-                            +'</areaFill>'
-                            +'<showDataEffect>'
-                            +'<SeriesInterpolate/>'
-                            +'</showDataEffect>'
-                            +'</RadarSeries>'
-                            +'<RadarSeries field="aspek3" displayName="Aspek 3">'
-                            +'<stroke>'
-                            +'<Stroke color="#f9c243" weight="2"/>'
-                            +'</stroke>'
-                            +'<lineStroke>'
-                            +'<Stroke color="#f9c243" weight="2"/>'
-                            +'</lineStroke>'
-                            +'<areaFill>'
-                            +'<SolidColor color="#f9c243" alpha="0.3"/>'
-                            +'</areaFill>'
-                            +'<showDataEffect>'
-                            +'<SeriesInterpolate/>'
-                            +'</showDataEffect>'
-                            +'</RadarSeries>'
-                            +'<RadarSeries field="aspek4" displayName="Aspek 4">'
-                            +'<stroke>'
-                            +'<Stroke color="#66ff66" weight="2"/>'
-                            +'</stroke>'
-                            +'<lineStroke>'
-                            +'<Stroke color="#66ff66" weight="2"/>'
-                            +'</lineStroke>'
-                            +'<areaFill>'
-                            +'<SolidColor color="#f9c243" alpha="0.3"/>'
-                            +'</areaFill>'
-                            +'<showDataEffect>'
-                            +'<SeriesInterpolate/>'
-                            +'</showDataEffect>'
-                            +'</RadarSeries>'
-                            +'<RadarSeries field="aspek5" displayName="Aspek 5">'
-                            +'<stroke>'
-                            +'<Stroke color="#21cbc0" weight="2"/>'
-                            +'</stroke>'
-                            +'<lineStroke>'
-                            +'<Stroke color="#21cbc0" weight="2"/>'
-                            +'</lineStroke>'
-                            +'<areaFill>'
-                            +'<SolidColor color="#21cbc0" alpha="0.3"/>'
-                            +'</areaFill>'
-                            +'<showDataEffect>'
-                            +'<SeriesInterpolate/>'
-                            +'</showDataEffect>'
-                            +'</RadarSeries>'
-                            +'</series>'
-                            +'</RadarChart>'
-                            +'</KoolChart>';
-
-                        var chartData =
-                            [{"catName":"Aspek 1", "aspek1":140,"aspek2":110,"aspek3":90,"aspek4":40,"aspek5":60},
-                                {"catName":"Aspek 2", "aspek1":100,"aspek2":115,"aspek3":80,"aspek5":50},
-                                {"catName":"Aspek 3", "aspek1":170,"aspek2":135,"aspek3":100,"aspek5":70},
-                                {"catName":"Aspek 4", "aspek1":80,"aspek2":115,"aspek3":60,"aspek4":40},
-                                {"catName":"Aspek 5", "aspek1":160,"aspek2":125,"aspek3":95,"aspek4":30}];
-					</script>
-
-					<p id="tampil"></p>
+			<div class="box" style="padding: 20px">
+				<div class="row" style="padding: 10px">
 
 					<?php
 					$pertanyaan_ = array();

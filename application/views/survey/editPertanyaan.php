@@ -8,7 +8,7 @@
 		</h1>
 		<ol class="breadcrumb">
 			<li><a href="#"><i class="fa fa-dashboard"></i> <font face="Book Antiqua">Home</font></a></li>
-			<li><a href="<?php echo base_url('survey') ?>">Kelola Pertanyaan </a></li>
+			<li><a href="<?php echo base_url('Survey') ?>">Kelola Pertanyaan </a></li>
 			<li>Ubah Pertanyaan</li>
 
 		</ol>
@@ -36,7 +36,7 @@
 
 			<div class="row" style="padding: 15px">
 
-				<form class="form-horizontal" action="<?php echo base_url('survey/UpdatePertanyaan') ?>" method="post">
+				<form class="form-horizontal" action="<?php echo base_url('Survey/UpdatePertanyaan') ?>" method="post">
 
 					<input type="hidden" name="page" value="create_survey"/>
 					<input type="hidden" name="proceed_save" value="1"/>

@@ -8,7 +8,7 @@
 		</h1>
 		<ol class="breadcrumb">
 			<li><a href="#"><i class="fa fa-dashboard"></i> <font face="Book Antiqua">Home</font></a></li>
-			<li><a href="<?php echo base_url('survey') ?>">Kelola Survey </a></li>
+			<li><a href="<?php echo base_url('Survey') ?>">Kelola Survey </a></li>
 
 		</ol>
 		<div class="callout <?php echo $this->session->flashdata('message')['color']; ?>">
@@ -52,28 +52,28 @@
 							<td><?php echo $data->pertanyaan ?></td>
 							<td><?php echo $data->jenis_skor ?></td>
 							<td><?php echo $data->status ?></td>
-							<form action="<?php echo base_url('survey/editPertanyaan') ?>" method="post">
+							<form action="<?php echo base_url('Survey/editPertanyaan') ?>" method="post">
 							<input type="text" name="id_pertanyaan" style="display: none" value="<?php echo $data->id_pertanyaan ?>">
 							<td>
 								<button type="submit" class="btn btn-success">Ubah</button>
 							</td>
 							</form>
 							<?php if ($data->status == "Non Aktif"): ?>
-							<form action="<?php echo base_url('survey/enablePertanyaan') ?>" method="post">
+							<form action="<?php echo base_url('Survey/enablePertanyaan') ?>" method="post">
 								<input type="text" name="id_pertanyaan" style="display: none" value="<?php echo $data->id_pertanyaan ?>">
 								<td>
 									<button type="submit" class="btn btn-warning">Aktifkan</button>
 								</td>
 							</form>
 							<?php elseif ($data->status == "Aktif"): ?>
-								<form action="<?php echo base_url('survey/disablePertanyaan') ?>" method="post">
+								<form action="<?php echo base_url('Survey/disablePertanyaan') ?>" method="post">
 									<input type="text" name="id_pertanyaan" style="display: none" value="<?php echo $data->id_pertanyaan ?>">
 									<td>
 										<button type="submit" class="btn btn-warning">Non Aktifkan</button>
 									</td>
 								</form>
 							<?php endif; ?>
-							<form action="<?php echo base_url('survey/deletePertanyaan') ?>" method="post">
+							<form action="<?php echo base_url('Survey/deletePertanyaan') ?>" method="post">
 								<input type="text" name="id_pertanyaan" style="display: none" value="<?php echo $data->id_pertanyaan ?>">
 								<td>
 									<button type="submit" class="btn btn-danger">Hapus</button>
@@ -86,7 +86,7 @@
 						</tbody>
 					</table>
 				</div>
-			<a href="<?php echo base_url('survey/create') ?>">
+			<a href="<?php echo base_url('Survey/create') ?>">
 				<button type="button" class="btn btn-primary pull-right">
 					<i class="glyphicon glyphicon-edit"></i>
 					Buat Pertanyaan Baru

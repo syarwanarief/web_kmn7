@@ -131,7 +131,6 @@
                                             document.getElementById('namaPeserta').value = nama;
                                             document.getElementById('jabatanPeserta').value = jabatan;
                                             document.getElementById('strata').value = strata;
-                                            document.getElementById('strataP').value = strata;
                                             document.getElementById('unitKerja').value = unit;
 
                                             document.getElementById('nopekPes').value = nopek;
@@ -174,17 +173,13 @@
 						<div class="form-group">
 							<label><font face="Book Antiqua">Strata<font class="merah"> *</font></font></label>
 							<input type="text" class="form-control" value="" placeholder="Strata"
-								   name="strataP" id="strataP" disabled>
+								   name="strata" id="strata" disabled>
 						</div>
 						<div class="form-group">
 							<label><font face="Book Antiqua">Unit Kerja<font class="merah"> *</font></font></label>
 							<input type="text" class="form-control" value="" placeholder="Unit Kerja"
 								   name="unitKerja" id="unitKerja" disabled>
 						</div>
-
-						<form role="form" method="post" enctype="multipart/form-data"
-							  action="<?php echo base_url('Pelatihan/simpanPenilai') ?>">
-
 						<div class="form-group">
 							<label><font face="Book Antiqua">Unit Kerja Saat Pelatihan<font class="merah"> *</font></font></label>
 							<input type="text" class="form-control" value="" placeholder="Unit Kerja"
@@ -195,6 +190,8 @@
 			</div>
 		</div>
 
+		<form role="form" method="post" enctype="multipart/form-data"
+			  action="<?php echo base_url('Pelatihan/simpanPenilai') ?>">
 			<div class="box box-default">
 				<div class="box-body">
 					<div class="row">
@@ -254,8 +251,7 @@
 				<input type="text" id="namaPes" name="namaPes">
 				<input type="text" id="jabatanPes" name="jabatanPes">
 				<input type="text" id="unit" name="unit">
-				<input type="text" id="unitSaatPelatihan" name="unitSaatPelatihan">
-				<input type="text" value="" name="strata" id="strata">
+				<input type="text" id="unit" name="unitPel">
 			</div>
 
 			<button type="submit" class="btn btn-primary pull-right" name="submit">

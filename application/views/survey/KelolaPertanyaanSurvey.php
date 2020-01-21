@@ -3,13 +3,13 @@
 	<!-- Content Header (Page header) -->
 	<section class="content-header">
 		<h1><font face="Book Antiqua">
-				UBAH PERTANYAAN BARU
+				TAMBAH PERTANYAAN BARU
 			</font>
 		</h1>
 		<ol class="breadcrumb">
 			<li><a href="#"><i class="fa fa-dashboard"></i> <font face="Book Antiqua">Home</font></a></li>
-			<li><a href="<?php echo base_url('survey') ?>">Kelola Pertanyaan </a></li>
-			<li>Ubah Pertanyaan</li>
+			<li><a href="<?php echo base_url('Survey') ?>">Kelola Pertanyaan </a></li>
+			<li>Tambah Pertanyaan</li>
 
 		</ol>
 		<div class="callout <?php echo $this->session->flashdata('message')['color']; ?>">
@@ -36,7 +36,7 @@
 
 			<div class="row" style="padding: 15px">
 
-				<form class="form-horizontal" action="<?php echo base_url('survey/UpdatePertanyaan') ?>" method="post">
+				<form class="form-horizontal" action="<?php echo base_url('Survey/save') ?>" method="post">
 
 					<input type="hidden" name="page" value="create_survey"/>
 					<input type="hidden" name="proceed_save" value="1"/>
@@ -50,75 +50,50 @@
 
 					</div>
 
-					<?php foreach ($tampil as $data): ?>
-
-						<div class="form-group">
-							<label class="control-label col-sm-2" for="survey_question">Pertanyaan</label>
-							<div class="col-sm-10">
-								<input type="text" class="form-control" name="survey_question" id="survey_question"
-									   value="<?php echo $data->pertanyaan ?>">
-							</div>
+					<div class="form-group">
+						<label class="control-label col-sm-2" for="survey_question">Pertanyaan</label>
+						<div class="col-sm-10">
+							<input type="text" class="form-control" name="survey_question" id="survey_question">
 						</div>
+					</div>
 
-						<input type="text" name="id_pertanyaan" style="display: none" value="<?php echo $data->id_pertanyaan ?>">
-
-						<input type="text" class="form-control" name="jenis" id="jenis"
-							   value="<?php echo $data->jenis_skor ?>" style="display:none;">
-
-						<input type="text" class="form-control" name="aspek" id="aspek"
-							   value="<?php echo $data->aspek_pertanyaan ?>" style="display:none;">
-
-						<div class="form-group">
-							<label class="control-label col-sm-2" for="pil">Jenis Penilaian</label>
-							<div class="col-sm-5">
-								<select class="form-control" id="pil" name="pil" onchange="select()">
-									<option value="Text">Text</option>
-									<option value="Skor">Skor</option>
-								</select>
-							</div>
+					<div class="form-group">
+						<label class="control-label col-sm-2" for="pil">Jenis Penilaian</label>
+						<div class="col-sm-5">
+							<select class="form-control" id="pil" name="pil" onchange="select()">
+								<option value="Text">Text</option>
+								<option value="Skor">Skor</option>
+							</select>
 						</div>
+					</div>
 
-						<div class="form-group" id="answers_group" style="display: none">
-							<label class="control-label col-sm-2" for="kat">Aspek Pertanyaan</label>
-							<div class="col-sm-5">
-								<select class="form-control" id="kat" name="kat">
-									<option value="Text"></option>
-									<option value="Peningkatan Kompetensi (Aspek1)">Peningkatan Kompetensi (Aspek1)</option>
-									<option value="Peningkatan Kinerja (Aspek2)">Peningkatan Kinerja (Aspek2)</option>
-									<option value="Implementasi Hasil Pelatihan (Aspek3)">Implementasi Hasil Pelatihan (Aspek3)</option>
-									<option value="Knowledge Sharing (Aspek4)">Knowledge sharing (Aspek4)</option>
-									<option value="Peran Atasan (Aspek5)">Peran Atasan (Aspek5)</option>
+					<div class="form-group" id="answers_group" style="display: none">
+						<label class="control-label col-sm-2" for="kat">Aspek Pertanyaan</label>
+						<div class="col-sm-5">
+							<select class="form-control" id="kat" name="kat">
+								<option value="text"></option>
+								<option value="Peningkatan Kompetensi">Peningkatan Kompetensi</option>
+								<option value="Peningkatan Kinerja">Peningkatan Kinerja</option>
+								<option value="Implementasi Hasil Pelatihan">Implementasi Hasil Pelatihan</option>
+								<option value="Knowledge Sharing">Knowledge sharing</option>
+								<option value="Peran Atasan">Peran Atasan</option>
+								<option value="Peran Atasan">Uraian RTL dan Pembimbingan</option>
+								<option value="Peran Atasan">Upaya Pembimbingan Atasan Terhadap Peserta</option>
 
-								</select>
-							</div>
+							</select>
 						</div>
-
-					<?php endforeach; ?>
+					</div>
 
 					<div class="form-group col-sm-5">
-						<button type="submit" class="btn btn-success pull-left" onclick="AddQuestion()">
-							<i class="fa fa-edit"></i>
-							Ubah Pertanyaan
+						<button type="submit" class="btn btn-primary pull-left" onclick="AddQuestion()">
+							<i class="fa fa-plus"></i>
+							Tambah Pertanyaan
 						</button>
 					</div>
 				</form>
 			</div>
 		</div>
 		<script>
-
-            document.addEventListener('DOMContentLoaded', function () {
-                var jenis = document.getElementById('jenis').value;
-                var aspek = document.getElementById('aspek').value;
-
-                if (jenis === "Text") {
-                    $("#pil").val('Text');
-                } else {
-                    $("#kat").val(aspek);
-                    $("#pil").val('Skor');
-                    document.getElementById("answers_group").style.display = "block";
-                }
-            }, false);
-
             var sel = document.getElementById("pil");
 
             function select() {
@@ -133,7 +108,6 @@
                     document.getElementById("kat").value = "text";
                 }
             }
-
 		</script>
 		<script type="text/javascript" src="<?php echo base_url() . 'assets/js/jquery.min.js' ?>"></script>
 		<script type="text/javascript" src="<?php echo base_url() . 'assets/js/bootstrap.js' ?>"></script>

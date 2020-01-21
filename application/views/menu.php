@@ -37,12 +37,12 @@
         </a>
     </li>
 	<li class="active">
-		<a href="<?php echo base_url('Pelatihan/user'); ?>">
+		<a href="<?php echo base_url('pelatihanAnda/EvaluasiAnda'); ?>">
 			<i class="fa fa-dedent"></i> <span><font face="Book Antiqua">Evaluasi Pasca Pelatihan</font></span>
 		</a>
 	</li>
 	<li class="active">
-		<a href="<?php echo base_url('Pelatihan/riwayat'); ?>">
+		<a href="<?php echo base_url('pelatihanAnda'); ?>">
 			<i class="fa fa-folder-open-o"></i> <span><font face="Book Antiqua">Riwayat Pelatihan</font></span>
 		</a>
 	</li>
@@ -91,7 +91,12 @@
             </span>
 			</a>
 			<ul class="treeview-menu">
-				<li><a href="<?php echo base_url('Survey/index') ?>"><i class="fa fa-gear"></i><span><font face="Book Antiqua">Pertanyaan Evaluasi</font></a></li>
+
+				<li><a href="<?php echo base_url('survey/inputEvaluasi') ?>"><i class="fa fa-cloud-upload"></i><span>
+							<font face="Book Antiqua">Skor Evaluasi Pelatihan</font></a></li>
+
+				<li><a href="<?php echo base_url('survey/index') ?>"><i class="fa fa-gear"></i><span>
+							<font face="Book Antiqua">Pertanyaan Evaluasi</font></a></li>
 				</ul>
 		</li>
 
@@ -142,51 +147,85 @@
     <?php }else if($user['level'] == "AdminSDM"){  //level= dashboard
         ?>
 
-        <li class="active">
-            <a href="<?php echo base_url('KinerjaTahunan') ?>">
-                <i class="fa fa-bar-chart-o"></i> <span><span><font face="Book Antiqua">Kinerja Tahunan</font></span>
-            </a>
-        </li>
+		<li class="active">
+			<a href="<?php echo base_url('KinerjaTahunan') ?>">
+				<i class="fa fa-bar-chart-o"></i> <span><span><font face="Book Antiqua">Kinerja Tahunan</font></span>
+			</a>
+		</li>
 
-        <li class="active">
-            <a href="<?php echo base_url('PengembanganSDM') ?>">
-                <i class="fa fa-database"></i> <span><span><font face="Book Antiqua">Pengembangan SDM</font></span>
-            </a>
-        </li>
+		<li class="active">
+			<a href="<?php echo base_url('PengembanganSDM') ?>">
+				<i class="fa fa-database"></i> <span><span><font face="Book Antiqua">Pengembangan SDM</font></span>
+			</a>
+		</li>
 
-        <li class="active">
-            <a href="<?php echo base_url('DataKaryawan/Filter') ?>">
-                <i class="fa fa-address-card"></i> <span><span><font face="Book Antiqua">Data Karyawan</font></span>
-            </a>
-        </li>
+		<li class="active">
+			<a href="<?php echo base_url('DataKaryawan/Filter') ?>">
+				<i class="fa fa-address-card"></i> <span><span><font face="Book Antiqua">Data Karyawan</font></span>
+			</a>
+		</li>
 
-        <li class="treeview">
-            <a href="#">
-                <i class="fa fa-book"></i>
-                <span><font face="Book Antiqua">Laporan SDM</font></span>
-                <span class="pull-right-container">
+		<li class="treeview">
+			<a href="#">
+				<i class="fa fa-mortar-board"></i>
+				<span><font face="Book Antiqua">Evaluasi Pasca Pelatihan</font></span>
+				<span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
-            </a>
-            <ul class="treeview-menu">
-                <li><a href="<?php echo base_url('JumlahTK') ?>"><i class="fa fa-address-book-o"></i><span><font face="Book Antiqua">Jumlah Tenaga Kerja</font></a></li>
-                <li><a href="<?php echo base_url('BiayaTenagaKerja') ?>"><i class="glyphicon glyphicon-usd"></i><span><font face="Book Antiqua">Biaya Tenaga Kerja</font></a></li>
-            </ul>
-        </li>
-        <li class="treeview">
-            <a href="#">
-                <i class="fa fa-address-card"></i>
-                <span><font face="Book Antiqua">Laporan Data KM</font></span>
-                <span class="pull-right-container">
+			</a>
+			<ul class="treeview-menu">
+				<li><a href="<?php echo base_url('Pelatihan') ?>"><i class="glyphicon glyphicon-ok"></i><span><font face="Book Antiqua">Daftar Penilaian</font></a></li>
+				<li><a href="<?php echo base_url('Pelatihan/laporanEvaluasi') ?>"><i class="glyphicon glyphicon-list-alt"></i><span><font face="Book Antiqua">Laporan Evaluasi</font></a></li>
+			</ul>
+		</li>
+
+		<li class="treeview">
+			<a href="#">
+				<i class="glyphicon glyphicon-retweet"></i>
+				<span><font face="Book Antiqua">Kelola Evaluasi Pelatihan</font></span>
+				<span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
-            </a>
-            <ul class="treeview-menu">
-                <li><a href="<?php echo base_url('LaporanUser') ?>"><i class="glyphicon glyphicon-send"></i><span><font face="Book Antiqua">Kirim Data KM</font></a></li>
-                <li><a href="<?php echo base_url('LaporanDataKM') ?>"><i class="fa fa-check-circle"></i><span><font face="Book Antiqua">Lihat Laporan Masuk</font></a></li>
-                <li><a href="<?php echo base_url('KritikSaran/View') ?>"><i class="fa fa-commenting-o"></i><span><font face="Book Antiqua">Kritik & Saran Pengguna</font></a></li>
-            </ul>
-        </li>
+			</a>
+			<ul class="treeview-menu">
+
+				<li><a href="<?php echo base_url('survey/inputEvaluasi') ?>"><i class="fa fa-cloud-upload"></i><span>
+							<font face="Book Antiqua">Skor Evaluasi Pelatihan</font></a></li>
+
+				<li><a href="<?php echo base_url('survey/index') ?>"><i class="fa fa-gear"></i><span>
+							<font face="Book Antiqua">Pertanyaan Evaluasi</font></a></li>
+			</ul>
+		</li>
+
+		<li class="treeview">
+			<a href="#">
+				<i class="fa fa-book"></i>
+				<span><font face="Book Antiqua">Laporan SDM</font></span>
+				<span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+			</a>
+			<ul class="treeview-menu">
+				<li><a href="<?php echo base_url('JumlahTK') ?>"><i class="fa fa-address-book-o"></i><span><font face="Book Antiqua">Jumlah Tenaga Kerja</font></a></li>
+				<li><a href="<?php echo base_url('BiayaTenagaKerja') ?>"><i class="glyphicon glyphicon-usd"></i><span><font face="Book Antiqua">Biaya Tenaga Kerja</font></a></li>
+			</ul>
+		</li>
+
+		<li class="treeview">
+			<a href="#">
+				<i class="glyphicon glyphicon-list-alt"></i>
+				<span><font face="Book Antiqua">Laporan Data KM</font></span>
+				<span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+			</a>
+			<ul class="treeview-menu">
+				<li><a href="<?php echo base_url('LaporanUser') ?>"><i class="glyphicon glyphicon-send"></i><span><font face="Book Antiqua">Kirim Data KM</font></a></li>
+				<li><a href="<?php echo base_url('LaporanDataKM') ?>"><i class="fa fa-check-circle"></i><span><font face="Book Antiqua">Lihat Laporan Masuk</font></a></li>
+				<li> <a href="<?php echo base_url('KritikSaran/View') ?>"><i class="fa fa-commenting-o"></i><span><font face="Book Antiqua">Kritik & Saran Pengguna</font></a></li>
+			</ul>
+		</li>
+
         <li class="treeview">
             <a href="#">
                 <i class="fa fa-gears"></i>

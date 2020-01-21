@@ -63,11 +63,7 @@
 				<div class="box-body">
 					<div class="panel panel-primary filterable">
 						<div class="panel-heading">
-							<h3 class="panel-title">Jumlah Total Tenaga Kerja Pada
-								Tahun <?php foreach ($tampil as $data) {
-									$thn[] = $data->tahun;
-								}
-								echo $thn[0]; ?></h3>
+							<h3 class="panel-title">Biaya Tenaga Kerja</h3>
 						</div>
 						<div class="table-responsive">
 							<table class="table table-bordered table-striped" border="2">
@@ -92,10 +88,8 @@
 									$realisasi[] = $data->realisasi;
 
 								endforeach;
-								?>
 
-								<?php
-								if (count($uraian) == 8){
+								if (count($uraian)==8){
 								function rupiah($angka)
 								{
 
@@ -171,6 +165,12 @@
 								</tr>
 
 								</tbody>
+								<?php
+								} else {
+									echo "Data Masih Belum Lengkap, Silahkan Lengkapi Terlebih Dahulu";
+								}
+								?>
+
 							</table>
 						</div>
 					</div>
@@ -187,6 +187,7 @@
 				</div>
 		</section>
 		<div style="background: #f9f9f9; margin-left: 15px;margin-right: 15px;padding: 10px">
+
 			<canvas id="myChart" width="500" height="150"></canvas>
 
 			<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
@@ -286,10 +287,5 @@
                 };
 			</script>
 			<p id="tampil"></p>
-			<?php
-			} else {
-				echo "Data Masih Belum Lengkap, Silahkan Lengkapi Terlebih Dahulu";
-			}
-			?>
 		</div>
 </div>

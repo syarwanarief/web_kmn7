@@ -107,52 +107,42 @@
 								<tr>
 
 									<input class="form-control" id="nopek_penilai<?php echo $data->id ?>"
-										   name="nopek_penilai" value="<?php echo $data->nopek_penilai ?>" disabled
-										   style="display: none">
+										   name="nopek_penilai" value="<?php echo $data->nopek_penilai ?>" disabled style="display: none">
 
 									<input class="form-control" id="nama_penilai<?php echo $data->id ?>"
-										   name="nama_penilai" value="<?php echo $data->nama_penilai ?>" disabled
-										   style="display: none">
+										   name="nama_penilai" value="<?php echo $data->nama_penilai ?>" disabled style="display: none">
 
 									<input class="form-control" id="jabatan_penilai<?php echo $data->id ?>"
 										   name="jabatan_penilai" value="<?php echo $data->jabatan_penilai ?>"
 										   disabled style="display: none">
 									<input class="form-control" id="nopek_peserta<?php echo $data->id ?>"
-										   name="nopek_peserta" value="<?php echo $data->nopek_peserta ?>" disabled
-										   style="display: none">
+										   name="nopek_peserta" value="<?php echo $data->nopek_peserta ?>" disabled style="display: none">
 
 									<input class="form-control" id="nama_peserta<?php echo $data->id ?>"
-										   name="nama_peserta" value="<?php echo $data->nama_peserta ?>" disabled
-										   style="display: none">
+										   name="nama_peserta" value="<?php echo $data->nama_peserta ?>" disabled style="display: none">
 
 									<input class="form-control" id="jabatan_peserta<?php echo $data->id ?>"
 										   name="jabatan_peserta" value="<?php echo $data->jabatan_peserta ?>"
 										   disabled style="display: none">
 
 									<input class="form-control" id="unit_peserta<?php echo $data->id ?>"
-										   name="unit_peserta" value="<?php echo $data->unit_peserta ?>" disabled
-										   style="display: none">
+										   name="unit_peserta" value="<?php echo $data->unit_peserta ?>" disabled style="display: none">
 
 									<input class="form-control" id="unit_saat_pelatihan<?php echo $data->id ?>"
 										   name="unit_saat_pelatihan"
-										   value="<?php echo $data->unit_saat_pelatihan ?>" disabled
-										   style="display: none">
+										   value="<?php echo $data->unit_saat_pelatihan ?>" disabled style="display: none">
 
 									<input class="form-control" id="no_tugas<?php echo $data->id ?>"
-										   name="no_tugas" value="<?php echo $data->no_tugas ?>" disabled
-										   style="display: none">
+										   name="no_tugas" value="<?php echo $data->no_tugas ?>" disabled style="display: none">
 
 									<input class="form-control" id="judul_nama<?php echo $data->id ?>"
-										   name="judul_nama" value="<?php echo $data->judul_nama ?>" disabled
-										   style="display: none">
+										   name="judul_nama" value="<?php echo $data->judul_nama ?>" disabled style="display: none">
 
 									<input class="form-control" id="tgl_mulai<?php echo $data->id ?>"
-										   name="tgl_mulai" value="<?php echo $data->tgl_mulai ?>" disabled
-										   style="display: none">
+										   name="tgl_mulai" value="<?php echo $data->tgl_mulai ?>" disabled style="display: none">
 
 									<input class="form-control" id="tgl_selesai<?php echo $data->id ?>"
-										   name="tgl_selesai" value="<?php echo $data->tgl_mulai ?>" disabled
-										   style="display: none">
+										   name="tgl_selesai" value="<?php echo $data->tgl_mulai ?>" disabled style="display: none">
 
 									<input class="form-control" id="status<?php echo $data->id ?>" name="status"
 										   value="<?php echo $data->status ?>" disabled style="display: none">
@@ -192,8 +182,7 @@
 									<td><input class="form-control" id="tgl_mulai_<?php echo $data->id ?>"
 											   name="tgl_mulai" value="<?php echo $data->tgl_mulai ?>" disabled></td>
 									<td><input class="form-control" id="tgl_selesai_<?php echo $data->id ?>"
-											   name="tgl_selesai" value="<?php echo $data->tgl_selesai ?>" disabled>
-									</td>
+											   name="tgl_selesai" value="<?php echo $data->tgl_selesai ?>" disabled></td>
 
 									<td><input class="form-control" id="status_<?php echo $data->id ?>" name="status"
 											   value="<?php echo $data->status ?>" disabled></td>
@@ -234,6 +223,7 @@
                                                 document.getElementById("tgl_selesai_" + id).disabled = false;
                                                 document.getElementById("status_" + id).disabled = false;
 
+                                                return false;
                                             }
 
                                             function save(id) {
@@ -257,6 +247,20 @@
 
                                                 var idPenilai = document.getElementById("id_" + id).value;
 
+                                                var nopek_penilaiOld = document.getElementById("nopek_penilai" + id).value;
+                                                var nama_penilaiOld = document.getElementById("nama_penilai" + id).value;
+                                                var jabatan_penilaiOld = document.getElementById("jabatan_penilai" + id).value;
+                                                var nopek_pesertaOld = document.getElementById("nopek_peserta" + id).value;
+                                                var nama_pesertaOld = document.getElementById("nama_peserta" + id).value;
+                                                var jabatan_pesertaOld = document.getElementById("jabatan_peserta" + id).value;
+                                                var unit_pesertaOld = document.getElementById("unit_peserta" + id).value;
+                                                var unit_saat_pelatihanOld = document.getElementById("unit_saat_pelatihan" + id).value;
+                                                var no_tugasOld = document.getElementById("no_tugas" + id).value;
+                                                var judul_namaOld = document.getElementById("judul_nama" + id).value;
+                                                var tgl_mulaiOld = document.getElementById("tgl_mulai" + id).value;
+                                                var tgl_selesaiOld = document.getElementById("tgl_selesai" + id).value;
+                                                var statusOld = document.getElementById("status" + id).value;
+
                                                 var nopek_penilai = document.getElementById("nopek_penilai_" + id).value;
                                                 var nama_penilai = document.getElementById("nama_penilai_" + id).value;
                                                 var jabatan_penilai = document.getElementById("jabatan_penilai_" + id).value;
@@ -271,39 +275,45 @@
                                                 var tgl_selesai = document.getElementById("tgl_selesai_" + id).value;
                                                 var status = document.getElementById("status_" + id).value;
 
-                                                $.ajax({
-                                                    url: '<?php echo base_url();?>index.php/Pelatihan/SimpanPerubahanPenilai',
-                                                    method: 'POST',
-                                                    data: {
-                                                        id: idPenilai,
-                                                        nopek_penilai: nopek_penilai,
-                                                        nama_penilai: nama_penilai,
-                                                        jabatan_penilai: jabatan_penilai,
-                                                        nopek_peserta: nopek_peserta,
-                                                        nama_peserta: nama_peserta,
-                                                        jabatan_peserta: jabatan_peserta,
-                                                        unit_peserta: unit_peserta,
-                                                        unit_saat_pelatihan : unit_saat_pelatihan,
-                                                        no_tugas: no_tugas,
-                                                        judul_nama: judul_nama,
-                                                        tgl_mulai: tgl_mulai,
-                                                        tgl_selesai: tgl_selesai,
-                                                        status: status
-                                                    },
-                                                    async: false,
-                                                    dataType: 'json',
-                                                    success: function (data) {
-                                                        alert("Berhasil Menyimpan Perubahan");
-                                                        location.reload();
-                                                    },
-                                                    error: function () {
-                                                        alert("Gagal Melakukan Perubahan, "+id+", "+nopek_penilai+", "+nama_penilai+", "+jabatan_penilai+", "+
-                                                        nopek_peserta+", "+nama_peserta+", "+jabatan_peserta+", "+unit_saat_pelatihan+", "+no_tugas
-                                                            +", "+judul_nama+", "+tgl_mulai+", "+tgl_selesai+", "+status);
-                                                        location.reload();
-                                                    }
+                                                if (nopek_penilai !== nopek_penilaiOld || nama_penilai !== nama_penilaiOld || jabatan_penilaiOld !== jabatan_penilai
+													|| nopek_peserta !== nopek_pesertaOld || nama_peserta !== nama_pesertaOld || jabatan_peserta !== jabatan_pesertaOld
+													|| unit_peserta !== unit_pesertaOld || unit_saat_pelatihan !== unit_saat_pelatihanOld || judul_nama !== judul_namaOld
+													|| tgl_mulai !== tgl_mulaiOld || tgl_selesai !== tgl_selesaiOld || status !== statusOld) {
 
-                                                });
+                                                    $.ajax({
+                                                        url: '<?php echo base_url();?>index.php/Pelatihan/SimpanPerubahanPenilai',
+                                                        method: 'POST',
+                                                        data: {
+                                                            id: idPenilai,
+                                                            nopek_penilai: nopek_penilai,
+                                                            nama_penilai: nama_penilai,
+                                                            jabatan_penilai: jabatan_penilai,
+                                                            nopek_peserta: nopek_peserta,
+                                                            nama_peserta: nama_peserta,
+                                                            jabatan_peserta: jabatan_peserta,
+                                                            unit_peserta: unit_peserta,
+                                                            unit_saat_pelatihan,
+                                                            no_tugas: no_tugas,
+                                                            judul_nama: judul_nama,
+                                                            tgl_mulai: tgl_mulai,
+                                                            tgl_selesai: tgl_selesai,
+                                                            status: status
+                                                        },
+                                                        async: false,
+                                                        dataType: 'json',
+                                                        success: function (data) {
+                                                            alert("Berhasil Menyimpan Perubahan");
+                                                        },
+                                                        error: function () {
+                                                            alert("Gagal Melakukan Perubahan");
+                                                            window.location.href = "BukaEditPenilai";
+                                                        }
+
+                                                    });
+                                                    return false;
+                                                } else {
+                                                    alert("Belum ada Perubahan yang dilakukan, Tidak ada data yang diubah")
+                                                }
                                             }
 										</script>
 									</td>

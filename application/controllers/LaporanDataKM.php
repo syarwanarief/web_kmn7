@@ -370,7 +370,6 @@ class LaporanDataKM extends CI_Controller {
 
                     }
 
-
                 else:
                     $this->flsh_msg('Gagal.', 'warning', 'Upload Gagal' . $input_data['error']['message']);
                 endif;

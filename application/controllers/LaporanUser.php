@@ -104,7 +104,6 @@ class LaporanUser extends CI_Controller {
     public function do_upload()
     {
 
-
         $nik = $this->input->post('nopek');
         $nama = $this->input->post("nama");
         $jabatan = $this->input->post('jabatan');
@@ -129,8 +128,6 @@ class LaporanUser extends CI_Controller {
         $data_word = $this->upload->data('file_name');
 
        $docxx =  substr($data_word, -4);
-
-
 
         if ($nik == '' or $katakunci == '' or $bidang == '' or $kriteria == '' or $judul == '' or empty($_FILES['word']['name']) ):
             $this->flsh_msg('Gagal', 'warning', 'Data tidak lengkap');

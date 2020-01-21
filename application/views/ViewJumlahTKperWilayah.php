@@ -64,9 +64,7 @@
         <div class="box-body">
             <div class="panel panel-primary filterable">
                 <div class="panel-heading">
-                    <h3 class="panel-title">Jumlah Tenaga Kerja Perwilayah Pada Tahun <?php foreach ($tahun as $data){ $thn[] = $data->tahun;
-						}
-						echo $thn[0];  ?> </h3>
+                    <h3 class="panel-title">Jumlah Tenaga Kerja Perwilayah </h3>
                 </div>
                 <div class="table-responsive">
 
@@ -92,6 +90,9 @@
                             $jumlah = 0;
                             $jumlahTotal[] = $data->karyawan_tetap+$data->karyawan_tidak_tetap;
                         endforeach;
+
+                        if (!empty($wilayah)){
+
                         ?>
 
                         <?php
@@ -117,6 +118,9 @@
                         </tr>
                         </tbody>
                     </table>
+					<?php }else{
+						echo "Data tahun ini belum tersedia ";
+					} ?>
                 </div>
                 <div class="box">
                     <div class="box-header">

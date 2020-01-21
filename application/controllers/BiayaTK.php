@@ -89,7 +89,7 @@ class BiayaTK extends CI_Controller
 
 		$data['notif'] = $this->Query->getAllData('v_notif')->row();
 		$data['tampil'] = $this->db->query("select * from biaya_tenaga_kerja where tahun=$tahun")->result();
-		$data['tahun'] = $this->db->query("select distinct tahun from biaya_tenaga_kerja")->result();
+		$data['tahun'] = $this->db->query("select distinct tahun from biaya_tenaga_kerja order by tahun desc ")->result();
 
 		$this->load->view('Template', $data);
 
@@ -189,7 +189,7 @@ class BiayaTK extends CI_Controller
 		$data['web'] = array(
 
 			'aktif_menu' => 'profil',
-			'page' => 'EditBiayaTK.php',
+			'page' => 'ViewBiayaTenagaKerja.php',
 			'is_trview' => false,
 			'is_table' => false,
 		);
@@ -205,7 +205,7 @@ class BiayaTK extends CI_Controller
 
 		$data['notif'] = $this->Query->getAllData('v_notif')->row();
 		$data['tampil'] = $this->db->query("select * from biaya_tenaga_kerja where tahun=$tahun")->result();
-		$data['tahun'] = $this->db->query("select distinct tahun from biaya_tenaga_kerja")->result();
+		$data['tahun'] = $this->db->query("select distinct tahun from biaya_tenaga_kerja order by tahun desc ")->result();
 		$this->load->view('Template', $data);
 	}
 

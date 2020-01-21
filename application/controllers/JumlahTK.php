@@ -32,7 +32,6 @@ class JumlahTK extends CI_Controller
 				redirect(base_url('Disabled'));
 			elseif ($this->user_level == 'User'):
 				redirect(base_url('Dashboard'));
-
 			endif;
 
 		else:
@@ -112,7 +111,7 @@ class JumlahTK extends CI_Controller
 				'is_table' => false,
 			);
 			$data['tampil'] = $this->db->query("select * from jumlah_tenaga_kerja where tahun=$tahun")->result();
-			$data['tahun'] = $this->db->query("select distinct tahun from jumlah_tenaga_kerja")->result();
+			$data['tahun'] = $this->db->query("select distinct tahun from jumlah_tenaga_kerja order by tahun desc")->result();
 
 		} elseif ($pilihan == "Mg==") {
 			$data['web'] = array(
@@ -123,7 +122,7 @@ class JumlahTK extends CI_Controller
 				'is_table' => false,
 			);
 			$data['tampil'] = $this->db->query("select * from jumlah_tk_perwilayah where tahun=$tahun")->result();
-			$data['tahun'] = $this->db->query("select distinct tahun from jumlah_tk_perwilayah")->result();
+			$data['tahun'] = $this->db->query("select distinct tahun from jumlah_tk_perwilayah order by tahun desc")->result();
 			$data['pilih'] = $this->db->query("select wilayah from jumlah_tk_perwilayah")->result();
 
 		} elseif ($pilihan == "Mw==") {
@@ -135,7 +134,7 @@ class JumlahTK extends CI_Controller
 				'is_table' => false,
 			);
 			$data['tampil'] = $this->db->query("select * from jumlah_tk_perkomoditas where tahun=$tahun")->result();
-			$data['tahun'] = $this->db->query("select distinct tahun from jumlah_tk_perkomoditas")->result();
+			$data['tahun'] = $this->db->query("select distinct tahun from jumlah_tk_perkomoditas order by tahun desc")->result();
 
 		} elseif ($pilihan == "NA==") {
 			$data['web'] = array(
@@ -146,7 +145,7 @@ class JumlahTK extends CI_Controller
 				'is_table' => false,
 			);
 			$data['tampil'] = $this->db->query("select * from jumlah_tk_perunit where tahun=$tahun")->result();
-			$data['tahun'] = $this->db->query("select distinct tahun from jumlah_tk_perunit")->result();
+			$data['tahun'] = $this->db->query("select distinct tahun from jumlah_tk_perunit order by tahun desc")->result();
 
 		} else {
 			$data['web'] = array(
